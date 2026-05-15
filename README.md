@@ -3,13 +3,8 @@ Punto de venta basico desarrollado desde 0, basado en las nesesidades reales de 
 la gestion y administracion interga del negocio
 
 ## 📋 Tabla de Contenidos
-
-## 📋 Resumen: Stack Final
-
-Código:         Java / openjdk 17.0.18                                  
-Base de datos:  ASP.NET Core + Swagger                                                             
-Tests:          suite_testing.sh                               
-CI/CD:          GitHub Actions                                          
+- [Características](#-Características)
+- [Tecnologías utilizadas](#-Tecnologías-utilizadas)
 
 ## ⚙️ Características
 
@@ -27,3 +22,10 @@ proveedores mediante claves primerias y foraneas para facilitar y optimizar el m
 - **Control de Versiones**: Git
 - **CI/CD**: GitHub Actions (workflow básico para compilación y pruebas)
 - **Base de datos**: Mysql
+
+## 📋 Resumen: Stack Final
+
+Código:         Java / openjdk 17.0.18                                  
+Base de datos:  ASP.NET Core + Swagger                                                             
+Tests:          suite_testing.sh                               
+CI/CD:          GitHub Actions                                          
