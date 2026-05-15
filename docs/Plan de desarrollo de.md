@@ -3,7 +3,7 @@
 **Objetivo: **Una base de datos simple y user friendly para llevar la administracion integra del negocio "Productos de limpieza mi lupita" haciendo uso de mysql para la base datos.
 
 ## Fase 1: analisis de requerimientos
-**Objetivo: **delimitar todos los parametros de ka base de datos
+**Objetivo :** delimitar todos los parametros de ka base de datos
 ### Dia 1: investigacion
 - [ ] Paltica con el cliente para comprencion del negocio
 - [ ] Planeacion de estructura de base de datos
