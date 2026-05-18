@@ -25,15 +25,15 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="ImagenDecorativa">
+    <Component class="javax.swing.JLabel" name="imagen">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/user_icon_120x120.png"/>
+          <Image iconType="3" name="/imagenes/user_icon_120x120.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="50" width="130" height="140"/>
+          <AbsoluteConstraints x="310" y="50" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -77,12 +77,12 @@
     <Component class="javax.swing.JLabel" name="Backgound">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/simple-background-wallpaper-preview.jpg"/>
+          <Image iconType="3" name="/imagenes/simple-background-wallpaper-preview.jpg"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="6" y="6" width="-1" height="-1"/>
+          <AbsoluteConstraints x="6" y="6" width="730" height="460"/>
         </Constraint>
       </Constraints>
     </Component>
