@@ -1,6 +1,6 @@
 # Plan de desarrollo de base de datos
 **Nombre del proyecto: Productos de limpieza mi lupita**
-**Objetivo: **Una base de datos simple y user friendly para llevar la administracion integra del negocio "Productos de limpieza mi lupita" haciendo uso de mysql para la base datos.
+**Objetivo:** Una base de datos simple y user friendly para llevar la administracion integra del negocio "Productos de limpieza mi lupita" haciendo uso de mysql para la base datos.
 
 ## Fase 1: analisis de requerimientos
 **Objetivo :** delimitar todos los parametros de ka base de datos
@@ -13,7 +13,7 @@
 - [ ] Precentacion de propuesta inicial
 - [ ] Visto bueno de la propuesta
 
-**Entregables: **Esquema final estructural de la base de datos.
+**Entregables:** Esquema final estructural de la base de datos.
 
 ## Fase 2: Creacion de base de datos
 **Objetivo: **Levantar una base de datos funcional en fase inicial. 
@@ -34,4 +34,4 @@
 - [ ] Registrar funcionamento de operaciones basicas.
 - [ ] Refactorizacion (en caso de ser nesesario).
 
-**Entregables: **Base de datos funcional, Suite de testing, Evidencias de funcionalidad.
+**Entregables:** Base de datos funcional, Suite de testing, Evidencias de funcionalidad.
