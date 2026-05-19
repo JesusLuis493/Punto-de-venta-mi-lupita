@@ -14,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jesus-luis
  */
-public class FrmInterfazVentas extends javax.swing.JFrame {
+public class FrmInterfazProductos extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazVentas.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazProductos.class.getName());
 
     /**
      * Creates new form FrmInterfazVentas
      */
-    public FrmInterfazVentas() {
+    public FrmInterfazProductos() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
@@ -48,8 +48,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         Table_Ventas = new javax.swing.JTable();
         Boton_Guardar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
-        TFTotal = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -66,8 +64,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
-        Logo_Ventas.setText("Ventas");
-        getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 80, 40));
+        Logo_Ventas.setText("Inventario");
+        getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 110, 40));
 
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
@@ -90,11 +88,11 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Producto", "Cantidad", "Precio", "Descuento"
+                "Productos", "Cantidad", "Precio", "Provvedor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -106,17 +104,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 740, 320));
 
         Boton_Guardar.setText("Guardar");
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 130, 50));
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 120, 50));
-
-        TFTotal.setEditable(false);
-        getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 200, 70));
-
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jLabel3.setText("Total :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 120, 50));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,17 +162,17 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        FrmInterfazDeudores deudores = new FrmInterfazDeudores();
-        deudores.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu6MouseClicked
-
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
         FrmInterfazReporte reporte = new FrmInterfazReporte();
         reporte.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        FrmInterfazDeudores deudores = new FrmInterfazDeudores();
+        deudores.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,7 +196,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmInterfazVentas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmInterfazProductos().setVisible(true));
     }
     
     public DefaultTableModel mostrarVentas(){
@@ -236,11 +227,9 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JLabel Logo_Ventas;
-    private javax.swing.JTextField TFTotal;
     private javax.swing.JTable Table_Ventas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

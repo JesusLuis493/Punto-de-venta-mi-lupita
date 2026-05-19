@@ -14,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jesus-luis
  */
-public class FrmInterfazVentas extends javax.swing.JFrame {
+public class FrmInterfazReporte extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazVentas.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazReporte.class.getName());
 
     /**
      * Creates new form FrmInterfazVentas
      */
-    public FrmInterfazVentas() {
+    public FrmInterfazReporte() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
@@ -66,8 +66,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
-        Logo_Ventas.setText("Ventas");
-        getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 80, 40));
+        Logo_Ventas.setText("Reporte");
+        getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 90, 40));
 
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
@@ -84,17 +84,17 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
 
         Table_Ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Producto", "Cantidad", "Precio", "Descuento"
+                "Producto", "Cantidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Long.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -171,17 +171,17 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        FrmInterfazDeudores deudores = new FrmInterfazDeudores();
-        deudores.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu6MouseClicked
-
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
         FrmInterfazReporte reporte = new FrmInterfazReporte();
         reporte.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        FrmInterfazDeudores deudores = new FrmInterfazDeudores();
+        deudores.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,7 +205,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmInterfazVentas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmInterfazReporte().setVisible(true));
     }
     
     public DefaultTableModel mostrarVentas(){
