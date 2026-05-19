@@ -5,7 +5,7 @@
 Durante la creacion de las interfasez para el usuario se encontro una fuerte incongruencia segun1 el plan de la base de datos, se propone la idea de refactorizar el esuqema de la base de datos y crear una vase de datos nueva, adaptada a las nesesidades del cliente.
 
 ### Propuesta de refactorizacion
-- [ ] Tabla ventas
+```- [ ] Tabla ventas
 - Producto [varchar(45)]
 - cantidad [int]
 - Precio   [float]
@@ -24,6 +24,8 @@ Durante la creacion de las interfasez para el usuario se encontro una fuerte inc
 - Producto [varchar(45)]
 - cantidad [int]
 - Precio   [float]
+```
+---
 
 ## Login/Interfaz
 - 19 de mayo del 2026

@@ -10,9 +10,9 @@ Crear un punto de venta adaptado 100% a las nesesidades del usuario final, cumpl
 ---
 
 ## Estructura de carpetas
-'''
+```
 └── README.md                           # Incerte aqui estructura
-'''
+```
 
 ---
 
@@ -23,9 +23,47 @@ Crear un punto de venta adaptado 100% a las nesesidades del usuario final, cumpl
 **Componentes**
 
 **Conexion.java**
+```java
+public class Conexion_BD {
+    Connection conectar = null;
+    public Connection conectar(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conectar=DriverManager.getConnection("jdbc:mysql://localhost/mybd","root","******");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }return conectar;
+    }
+}
+```
 **Proposito:** Ser el puente entre la base de datos y la interfaz por medio del conector java a sql.
 
 **Configuracion basica de interfaz**
+```java
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        FrmInterfazVentas ventas = new FrmInterfazVentas();
+        ventas.setVisible(true);
+        this.dispose();
+    }                                   
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        FrmInterfazProductos productos = new FrmInterfazProductos();
+        productos.setVisible(true);
+        this.dispose();
+    }                                   
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        FrmInterfazDeudores deudores = new FrmInterfazDeudores();
+        deudores.setVisible(true);
+        this.dispose();
+    }                                   
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        FrmInterfazReporte reporte = new FrmInterfazReporte();
+        reporte.setVisible(true);
+        this.dispose();
+    } 
+```
 **Proposito:** Esta configuracion base establese lo nesesario para saltar entre pestañas dentro del punto de venta y prosesar solisitudes a la base de datos. (visualizacion, eliminacion, agregar).
 
 ---
