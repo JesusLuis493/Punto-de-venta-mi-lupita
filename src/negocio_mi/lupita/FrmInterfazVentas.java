@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -25,8 +27,15 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
+        mostrarfecha();
+
     }
 
+    public void mostrarfecha() {
+        Date d = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+        LblFecha.setText(formato.format(d));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,9 +49,9 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         Logo_Ventas = new javax.swing.JLabel();
+        LblFecha = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Ventas = new javax.swing.JTable();
@@ -69,15 +78,14 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         Logo_Ventas.setText("Ventas");
         getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 80, 40));
 
+        LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 20));
+
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
 
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
-
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 120, -1));
 
         jTextField2.setEditable(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
@@ -155,10 +163,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         FrmInterfazVentas ventas = new FrmInterfazVentas();
         ventas.setVisible(true);
@@ -234,6 +238,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
+    private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
     private javax.swing.JTextField TFTotal;
     private javax.swing.JTable Table_Ventas;
@@ -249,7 +254,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

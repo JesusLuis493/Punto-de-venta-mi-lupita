@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -25,8 +27,14 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
+        mostrarfecha();
     }
 
+    public void mostrarfecha() {
+        Date d = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/YYYY");
+        LblFecha.setText(formato.format(d));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +50,6 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
         Logo_Ventas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Reporte = new javax.swing.JTable();
@@ -50,6 +57,7 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
         Boton_Eliminar = new javax.swing.JButton();
         TFTotal = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        LblFecha = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -74,10 +82,6 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
 
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
-
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 120, -1));
 
         jTextField2.setEditable(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
@@ -118,6 +122,9 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
         jLabel3.setText("Total :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
 
+        LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 100, 20));
+
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,10 +161,6 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         FrmInterfazVentas ventas = new FrmInterfazVentas();
@@ -233,6 +236,7 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
+    private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
     private javax.swing.JTextField TFTotal;
     private javax.swing.JTable Table_Reporte;
@@ -248,7 +252,6 @@ public class FrmInterfazReporte extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
