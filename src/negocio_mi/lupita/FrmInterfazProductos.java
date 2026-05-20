@@ -45,7 +45,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Table_Ventas = new javax.swing.JTable();
+        Table_Inventario = new javax.swing.JTable();
         Boton_Guardar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -80,26 +80,26 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         jTextField2.setEditable(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
 
-        Table_Ventas.setModel(new javax.swing.table.DefaultTableModel(
+        Table_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Productos", "Cantidad", "Precio", "Provvedor"
+                "Productos", "Cantidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(Table_Ventas);
+        jScrollPane1.setViewportView(Table_Inventario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 740, 320));
 
@@ -200,24 +200,22 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"id_venta","Producto","Cantidad","Precio","Descuento"};
-        String[] registros=new String[6];
+        String[] nombreColumnas={"Producto","Cantidad","Precio"};
+        String[] registros=new String[2];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from ventas");
+            ps = con.prepareStatement("select * from inventario");
             rs=ps.executeQuery();
             while(rs.next()){
-            registros[0]=rs.getString("Id_venta");
-            registros[1]=rs.getString("Producto");
-            registros[2]=rs.getString("Cantidad");
-            registros[3]=rs.getString("Precio");
-            registros[4]=rs.getString("Descuento");
+            registros[0]=rs.getString("Producto");
+            registros[1]=rs.getString("Cantidad");
+            registros[2]=rs.getString("Precio");
             modelo.addRow(registros);
-            Table_Ventas.setModel(modelo);
+            Table_Inventario.setModel(modelo);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al conectar");
@@ -227,7 +225,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JLabel Logo_Ventas;
-    private javax.swing.JTable Table_Ventas;
+    private javax.swing.JTable Table_Inventario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

@@ -209,8 +209,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"id_venta","Producto","Cantidad","Precio","Descuento"};
-        String[] registros=new String[6];
+        String[] nombreColumnas={"Producto","Cantidad","Precio","Descuento"};
+        String[] registros=new String[3];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -220,11 +220,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
             ps = con.prepareStatement("select * from ventas");
             rs=ps.executeQuery();
             while(rs.next()){
-            registros[0]=rs.getString("Id_venta");
-            registros[1]=rs.getString("Producto");
-            registros[2]=rs.getString("Cantidad");
-            registros[3]=rs.getString("Precio");
-            registros[4]=rs.getString("Descuento");
+            registros[0]=rs.getString("Producto");
+            registros[1]=rs.getString("Cantidad");
+            registros[2]=rs.getString("Precio");
+            registros[3]=rs.getString("Descuento");
             modelo.addRow(registros);
             Table_Ventas.setModel(modelo);
             }

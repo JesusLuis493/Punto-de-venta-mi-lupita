@@ -17,7 +17,7 @@ Crear un punto de venta adaptado 100% a las nesesidades del usuario final, cumpl
 ---
 
 ## Capas de arquitectura
-### Capa de negocios (core)
+### 1️⃣Capa de negocios (core)
 **Ubicasion:** Incerte aqui la ubicasion.
 **Responsabilidad:** Llevar acabo las conexiones entre la base de datos y la interfaz grafica de usuario (capa CLI).
 **Componentes**
@@ -68,7 +68,7 @@ public class Conexion_BD {
 
 ---
 
-### Capa de presentacion
+### 2️⃣Capa de presentacion
 **Ubicasion:** Incerte aqui la ubicasion.
 **Responsabilidad:** Poder realizar de manera sensilla la manipulacion a la base de datos mediante elementos graficos.
 **Componentes**
@@ -90,7 +90,7 @@ public class Conexion_BD {
 
 --- 
 
-### Capa de base de datos
+### 3️⃣Capa de base de datos
 **Ubicasion:** Incerte aqui la ubicasion.
 **Responsabilidad:** Guarda y permitir manipular los datos referentes al negocio de manera segura.
 **Componentes**
