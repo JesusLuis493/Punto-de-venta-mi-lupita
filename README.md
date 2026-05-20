@@ -35,3 +35,33 @@ Código:         Java / openjdk 17.0.18
 Base de datos:  ASP.NET Core + Swagger                                                             
 Tests:          suite_testing.sh                               
 CI/CD:          GitHub Actions                                          
+
+## 📂 Estructura del proyecto
+```
+Punto-de-venta-mi-lupita
+├── docs/                      # Documentacion aserca del proyecto
+│   ├── BD Diagrama.png
+│   ├── Arquitectura.md
+│   ├── Estado_actual.md
+│   └── Notas_tecnicas.md
+├── nbprojects/
+│   ├── private/
+│   ├── build-impl.xml
+│   ├── genfiles.properties
+│   ├── prpject.properties
+│   └── project.xml
+├── src/
+│   ├── iamgenes/              # Imagenes utilizadas para el login
+│   └── negocio_mi/lupita/     # Archivos funcionales
+│       ├── Conexion.java
+│       ├── FrmInterfazVentas.java
+│       ├── FrmInterfazProductos.java
+│       ├── FrmInterfazReporte.java
+│       ├── FrmInterfazDeudores.java
+│       └── FrmLogin.java
+├── .gitignore
+├── LICENSE
+├── README.md
+├── build.xml
+└── manifest.mf
+```
