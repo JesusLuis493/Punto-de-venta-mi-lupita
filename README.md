@@ -11,6 +11,7 @@ la gestion y administracion interga del negocio
 ## 📋 Tabla de Contenidos
 - [Características](#-Características)
 - [Tecnologías utilizadas](#-Tecnologías-utilizadas)
+- [Estructura del proyecto](#-Estructura-del-proyecto)
 
 ## ⚙️ Características
 
