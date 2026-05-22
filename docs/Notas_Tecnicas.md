@@ -47,7 +47,7 @@ El metodo `mostar` hace uso de 2 strings arrays los cuales guardan el nombre y l
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from ventas");
+            ps = con.prepareStatement("select * from ventas");    //sentencia para solisitar los datos a visualizar
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Id_venta");

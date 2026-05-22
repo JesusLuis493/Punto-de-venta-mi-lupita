@@ -59,10 +59,22 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         Boton_Eliminar = new javax.swing.JButton();
         TFTotal = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        TFProducto = new javax.swing.JTextField();
+        TFPrecioProducto = new javax.swing.JTextField();
+        TFCantidad = new javax.swing.JTextField();
+        TFMontoResivido = new javax.swing.JTextField();
+        TFDescuento = new javax.swing.JTextField();
+        TFSubtotal = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -72,6 +84,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(242, 233, 187));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
@@ -79,16 +92,17 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 80, 40));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 20));
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 90, 20));
 
         jLabel1.setText("Fecha");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
         jTextField2.setEditable(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
+        jTextField2.setText("jesusdev@gmail.com");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 120, -1));
 
         Table_Ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,7 +112,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Producto", "Cantidad", "Precio", "Descuento"
+                "Producto", "Cantidad", "Subtotal", "Descuento"
             }
         ) {
             Class[] types = new Class [] {
@@ -111,20 +125,48 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_Ventas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 740, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 740, 320));
 
         Boton_Guardar.setText("Guardar");
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 130, 50));
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 120, 50));
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 120, 50));
 
         TFTotal.setEditable(false);
-        getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 200, 70));
+        getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, 200, 70));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, -1, -1));
+
+        jLabel4.setText("Producto");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        jLabel5.setText("Cantidad");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
+
+        jLabel6.setText("Descuento");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
+
+        jLabel7.setText("Precio del producto");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        jLabel8.setText("Monto resivido");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
+
+        jLabel9.setText("Subtotal");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+        getContentPane().add(TFProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 100, -1));
+        getContentPane().add(TFPrecioProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, -1));
+        getContentPane().add(TFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 100, -1));
+        getContentPane().add(TFMontoResivido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 100, -1));
+        getContentPane().add(TFDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 100, -1));
+        getContentPane().add(TFSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 100, -1));
+
+        jLabel10.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
+        jLabel10.setText("Reporte de ventas");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,14 +183,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu2);
-
-        jMenu5.setText("Reporte");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,12 +215,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu6MouseClicked
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        FrmInterfazReporte reporte = new FrmInterfazReporte();
-        reporte.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu5MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -213,7 +241,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"Producto","Cantidad","Precio","Descuento"};
+        String[] nombreColumnas={"Producto","Cantidad","Subtotal","Descuento"};
         String[] registros=new String[3];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
@@ -221,12 +249,12 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from ventas");
+            ps = con.prepareStatement("select * from ventas"); //hay que sentencia select por un join
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Producto");
             registros[1]=rs.getString("Cantidad");
-            registros[2]=rs.getString("Precio");
+            registros[2]=rs.getString("Subtotal");
             registros[3]=rs.getString("Descuento");
             modelo.addRow(registros);
             Table_Ventas.setModel(modelo);
@@ -240,16 +268,28 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
+    private javax.swing.JTextField TFCantidad;
+    private javax.swing.JTextField TFDescuento;
+    private javax.swing.JTextField TFMontoResivido;
+    private javax.swing.JTextField TFPrecioProducto;
+    private javax.swing.JTextField TFProducto;
+    private javax.swing.JTextField TFSubtotal;
     private javax.swing.JTextField TFTotal;
     private javax.swing.JTable Table_Ventas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;

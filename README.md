@@ -15,12 +15,11 @@ la gestion y administracion interga del negocio
 
 ## ⚙️ Características
 
-- **Gestion de productos y proveedores :** Los productos estan relacionados directamente con sus respectivas categorias y
-proveedores mediante claves primerias y foraneas para facilitar y optimizar el manejo de los productos.
-- **Registro de deudores** Implementacion de un registro unico de deudores basado en numero de venta y montos a dever.
-- **Control de empleados** Mediante el uso de ids de empleados y ventas se pretende poder manejar la informacion de entrada y salida en caja.
-- **interfas user-friendly** Se pretende mantener la interfas adaptada al cliente final para facilitar su uso.
-
+- **Documentacion :** Cobertura de notas tecnicas, estado actual y arquitectura de este proyecto. [Consultar aqui](Docs)
+- **Llenado y visualizacion :** se agrega un apartado para llevar acabo el llenado de las tablas, mientras qu en la parte inferior se encuentra una tabla la cual muestra los datos guardados de dicha tabla de la base de datos.
+- **Registro de deudores :** Implementacion de un registro unico de deudores basado en numero de venta y montos a dever.
+- **interfas user-friendly :** Se pretende mantener la interfas adaptada al cliente final para facilitar su uso.
+- **Funcionalidad :** base de datos optimizada lo mas posible para no desperdiciar recursos, priorizando el enfoque KISS.
 ## 🧰 Tecnologías utilizadas
 
 - **Lenguaje de Programación**: Java
@@ -45,6 +44,7 @@ Punto-de-venta-mi-lupita
 │   ├── Arquitectura.md
 │   ├── Estado_actual.md
 │   └── Notas_tecnicas.md
+├── Imagenes/
 ├── nbprojects/
 │   ├── private/
 │   ├── build-impl.xml
@@ -57,7 +57,6 @@ Punto-de-venta-mi-lupita
 │       ├── Conexion.java
 │       ├── FrmInterfazVentas.java
 │       ├── FrmInterfazProductos.java
-│       ├── FrmInterfazReporte.java
 │       ├── FrmInterfazDeudores.java
 │       └── FrmLogin.java
 ├── .gitignore

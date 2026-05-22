@@ -56,10 +56,17 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         Boton_Guardar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
         LblFecha = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Proudcto_nombre = new javax.swing.JTextField();
+        Stock = new javax.swing.JTextField();
+        Precio_venta = new javax.swing.JTextField();
+        Costo = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -76,27 +83,28 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 110, 40));
 
         jLabel1.setText("Fecha");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
         jTextField2.setEditable(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
+        jTextField2.setText("jesusdev@gmail.com");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 120, -1));
 
         Table_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Productos", "Cantidad", "Precio"
+                "Productos", "Cantidad disponible", "Costo", "Precio de venta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -105,16 +113,36 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_Inventario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 740, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 740, 320));
 
         Boton_Guardar.setText("Guardar");
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 130, 50));
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 120, 50));
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 120, 50));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 100, 20));
+
+        jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel3.setText("Nombre del producto");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel4.setText("Cantidad disponible");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
+
+        jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel5.setText("Costo");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel6.setText("Precio de venta");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+        getContentPane().add(Proudcto_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 160, -1));
+        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 160, -1));
+        getContentPane().add(Precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 160, -1));
+        getContentPane().add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 160, -1));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,14 +159,6 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu2);
-
-        jMenu5.setText("Reporte");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,12 +184,6 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         productos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        FrmInterfazReporte reporte = new FrmInterfazReporte();
-        reporte.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
         FrmInterfazDeudores deudores = new FrmInterfazDeudores();
@@ -203,8 +217,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"Producto","Cantidad","Precio"};
-        String[] registros=new String[2];
+        String[] nombreColumnas={"Producto","Cantidad disponible","Costos","Precio de venta"};
+        String[] registros=new String[3];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -215,8 +229,9 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Producto");
-            registros[1]=rs.getString("Cantidad");
-            registros[2]=rs.getString("Precio");
+            registros[1]=rs.getString("Cantidad disponible");
+            registros[2]=rs.getString("Costos");
+            registros[3]=rs.getString("Precio de venta");
             modelo.addRow(registros);
             Table_Inventario.setModel(modelo);
             }
@@ -227,16 +242,23 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
+    private javax.swing.JTextField Costo;
     private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
+    private javax.swing.JTextField Precio_venta;
+    private javax.swing.JTextField Proudcto_nombre;
+    private javax.swing.JTextField Stock;
     private javax.swing.JTable Table_Inventario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;

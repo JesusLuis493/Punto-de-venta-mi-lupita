@@ -36,18 +36,11 @@ Durante la creacion de las interfasez para el usuario se encontro una fuerte inc
 - cantidad [int]
 - Precio   [float]
 ```
----
 
-- **Funcionamiento de la conexion mysql**
-Para realizar la conexion de la base de datos en mysql a la interfaz de java primero se agrego el conector java a mysql descargado directamente de la pagina oficial de mysql, posterior a eso se crea el archivo `conexion.java` exportando las librerias ``java.sql.Connection`` y ``java.sql.DriverManager;`` para hacer uso de los metodos de coneccion ya existente, mientras que dentro del metodo principal se crea el metodo de coneccion indicando la ruta y los datos para la coneccion.
-```java
-try {
-Class.forName("com.mysql.cj.jdbc.Driver");
-conectar=DriverManager.getConnection("jdbc:mysql://localhost/mybd","root","tu Contraseña");
-} catch (Exception e) {
-System.out.println(e.getMessage());
-}
-```
+- 21 de mayo del 2026
+Se rechazo la propuesta anterior de BD devido a una redundancia entre tablas y la falta de claves primarias y foraneas, en su lugar se creo una [nueva propuesta de base de datos](imagenes/DiagramaER_BD_0.2.png), la cual consta de 4 tablas en lugar de las 6 originales, [Consultar diagrama anterior](imagenes/DiagramaER_BD_0.1.png)
+Devido a la refactorizacion de la base de datos, se devio modificar las interfazes para hacer que el nuevo esquema funcionara, el resultado desemboco en la adicion de una sona para incertar datos.
+--- 
 
 ## Login/Interfaz
 - 19 de mayo del 2026
@@ -55,6 +48,14 @@ Se llevo acabo una refactorizacion en el backend del login
 **Descripcion:** Durante las labores de estructuracion de planteo conectar el login directamente a la base de datos para guardar ususarios y contraseñas, devido a complicasiones entre la concepsion de la base de datos y el la estructura en java se opto por guardar usuarios y contraseñas de manera local dentro del mismo login.
 
 **Advertencia: Esta medida vuelve realmete inseguro el login al poder accesar a dichos datos mediante la carpeta de src, en caso de hacer fork tomaarlo en cuenta**
+
+- 21 de mayo del 2026
+Se agregaron secciones de llenado para las diferentes inrfazes del punto de venta, `ventas`, `inventario`, `deudores`, esto con el fin de mantener las tablas de las interfazes **unicamnente para visualizar informacion**, dichas interfazes ya estan dotadas con votones para eliminar y guardar los registros sin nesesidad de tocar el backend dorectamente.
+Adicionalmente se elimino la interfaz de reportes, devido a que su funcion era solo visualizar las ventas realizadas, de manera que se muestren los datos claves de la venta, se opto por eliminar el archivo de interfaz e integrarlo dentro de la interfaz de ventas, esto con el fin de optimizar proseso de gestion.
+![Imagen de la nueva interfaz](/home/jesus-luis/NetBeansProjects/Negocio_mi-lupita/Imagenes/Interfaz de usuario_ventas.png)
+
+**Advertencia: aun no se a trabajado en las solisitudes de la interfaz a la base de datos para visualizar los datos deseados**
+**Advertencia: aun no se a trabajado en las conexiones a la nueva base de datos**
 --- 
 
 ### Errores
@@ -69,3 +70,4 @@ Actualmente se cuenta con los archivos de:
 - `Notas Tecnicas.md` (Explica el funcionamiento de codigo)
 - `Arquitectura de punto de venta.md` (muestra la composision del proyecto a mayor escala)
 - `Estado actual.md` (este documento, redacta errores y observaciones)
+- `imagenes` (Contiene material grafico como el diseño de las interfazes y los diagrams de la base de datos)

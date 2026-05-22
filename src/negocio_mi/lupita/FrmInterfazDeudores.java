@@ -56,10 +56,17 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         Boton_Guardar = new javax.swing.JButton();
         Boton_Eliminar = new javax.swing.JButton();
         LblFecha = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        TFNumVenta = new javax.swing.JTextField();
+        TFDeuda = new javax.swing.JTextField();
+        TFDeudor = new javax.swing.JTextField();
+        TFDeleteDeudor = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -76,27 +83,28 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 110, 40));
 
         jLabel1.setText("Fecha");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
         jTextField2.setEditable(false);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
+        jTextField2.setText("jesusdev@gmail.com");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 120, -1));
 
         Table_Deudores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Que compro", "Cantidad"
+                "Id_deudor", "Nombre", "Numero de venta", "Monto prendiente"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Long.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -105,16 +113,36 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_Deudores);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 740, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 740, 320));
 
         Boton_Guardar.setText("Guardar");
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 130, 50));
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 600, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 120, 50));
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, 120, 50));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 100, 20));
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 100, 20));
+
+        jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel3.setText("Numero de venta");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel4.setText("Cantidad a dever");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel5.setText("Nombre del deudor");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel6.setText("Eliminar deudor");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+        getContentPane().add(TFNumVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 120, -1));
+        getContentPane().add(TFDeuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 120, -1));
+        getContentPane().add(TFDeudor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 120, -1));
+        getContentPane().add(TFDeleteDeudor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 120, -1));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,14 +159,6 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu2);
-
-        jMenu5.setText("Reporte");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,12 +184,6 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         productos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        FrmInterfazReporte reporte = new FrmInterfazReporte();
-        reporte.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
         FrmInterfazDeudores deudores = new FrmInterfazDeudores();
@@ -203,8 +217,8 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"Nombre","Que comrpo","Cantidad a dever"};
-        String[] registros=new String[2];
+        String[] nombreColumnas={"Id_deudor","Nombre","Numero de venta","Cantidad a dever"};
+        String[] registros=new String[3];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -214,9 +228,10 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
             ps = con.prepareStatement("select * from deudores");
             rs=ps.executeQuery();
             while(rs.next()){
-            registros[0]=rs.getString("Nombre");
-            registros[1]=rs.getString("Que comrpo");
-            registros[2]=rs.getString("Cantidad a dever");
+            registros[0]=rs.getString("Id_deudor");
+            registros[1]=rs.getString("Nombre");
+            registros[2]=rs.getString("Numero de venta");
+            registros[3]=rs.getString("Cantidad a dever");
             modelo.addRow(registros);
             Table_Deudores.setModel(modelo);
             }
@@ -229,14 +244,21 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
+    private javax.swing.JTextField TFDeleteDeudor;
+    private javax.swing.JTextField TFDeuda;
+    private javax.swing.JTextField TFDeudor;
+    private javax.swing.JTextField TFNumVenta;
     private javax.swing.JTable Table_Deudores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
