@@ -102,7 +102,7 @@ public class Conexion_BD {
 **Proposito:** Brindar un acceso seguro al cliente a la base de datos para su uso. (Revisar la seccion de base de datos en el documento de notas tecnicas).
 
 **FrmInterfazVentas.java**
-![Imagen de la nueva interfaz](/home/jesus-luis/NetBeansProjects/Negocio_mi-lupita/Imagenes/Interfaz de usuario_ventas.png)
+![Imagen de la nueva interfaz](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/Interfaz%20de%20usuario%20_ventas.png)
 **Proposito:** Proposrcionar facilidad para visualizar y actualizar la tabla de ventas desde un entorno grafico simple e intuitivo.
 
 **FrmInterfazProductos.java**
@@ -122,5 +122,5 @@ public class Conexion_BD {
 **Componentes**
 
 **base de datos**
-[nueva propuesta de base de datos](imagenes/DiagramaER_BD_0.2.png)
+[nueva propuesta de base de datos](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.2.png)
 **Proposito:** mantener seguros los datos incertados dentro de esta y permitir su manipulacion mediante la interfaz grafica.

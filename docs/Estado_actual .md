@@ -38,7 +38,7 @@ Durante la creacion de las interfasez para el usuario se encontro una fuerte inc
 ```
 
 - 21 de mayo del 2026
-Se rechazo la propuesta anterior de BD devido a una redundancia entre tablas y la falta de claves primarias y foraneas, en su lugar se creo una [nueva propuesta de base de datos](imagenes/DiagramaER_BD_0.2.png), la cual consta de 4 tablas en lugar de las 6 originales, [Consultar diagrama anterior](imagenes/DiagramaER_BD_0.1.png)
+Se rechazo la propuesta anterior de BD devido a una redundancia entre tablas y la falta de claves primarias y foraneas, en su lugar se creo una [nueva propuesta de base de datos](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.2.png), la cual consta de 4 tablas en lugar de las 6 originales, [Consultar diagrama anterior](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.1.png)
 Devido a la refactorizacion de la base de datos, se devio modificar las interfazes para hacer que el nuevo esquema funcionara, el resultado desemboco en la adicion de una sona para incertar datos.
 --- 
 
@@ -52,7 +52,7 @@ Se llevo acabo una refactorizacion en el backend del login
 - 21 de mayo del 2026
 Se agregaron secciones de llenado para las diferentes inrfazes del punto de venta, `ventas`, `inventario`, `deudores`, esto con el fin de mantener las tablas de las interfazes **unicamnente para visualizar informacion**, dichas interfazes ya estan dotadas con votones para eliminar y guardar los registros sin nesesidad de tocar el backend dorectamente.
 Adicionalmente se elimino la interfaz de reportes, devido a que su funcion era solo visualizar las ventas realizadas, de manera que se muestren los datos claves de la venta, se opto por eliminar el archivo de interfaz e integrarlo dentro de la interfaz de ventas, esto con el fin de optimizar proseso de gestion.
-![Imagen de la nueva interfaz](/home/jesus-luis/NetBeansProjects/Negocio_mi-lupita/Imagenes/Interfaz de usuario_ventas.png)
+![Imagen de la nueva interfaz](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/Interfaz%20de%20usuario%20_ventas.png)
 
 **Advertencia: aun no se a trabajado en las solisitudes de la interfaz a la base de datos para visualizar los datos deseados**
 **Advertencia: aun no se a trabajado en las conexiones a la nueva base de datos**

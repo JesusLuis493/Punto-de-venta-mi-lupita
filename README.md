@@ -15,7 +15,7 @@ la gestion y administracion interga del negocio
 
 ## ⚙️ Características
 
-- **Documentacion :** Cobertura de notas tecnicas, estado actual y arquitectura de este proyecto. [Consultar aqui](Docs)
+- **Documentacion :** Cobertura de notas tecnicas, estado actual y arquitectura de este proyecto. [Consultar aqui](docs)
 - **Llenado y visualizacion :** se agrega un apartado para llevar acabo el llenado de las tablas, mientras qu en la parte inferior se encuentra una tabla la cual muestra los datos guardados de dicha tabla de la base de datos.
 - **Registro de deudores :** Implementacion de un registro unico de deudores basado en numero de venta y montos a dever.
 - **interfas user-friendly :** Se pretende mantener la interfas adaptada al cliente final para facilitar su uso.
