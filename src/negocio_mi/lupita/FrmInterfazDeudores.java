@@ -225,7 +225,7 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from deudores");
+            ps = con.prepareStatement("select * from Deudores");
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Id_deudor");

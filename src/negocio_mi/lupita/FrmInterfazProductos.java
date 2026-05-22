@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author jesus-luis
  */
 public class FrmInterfazProductos extends javax.swing.JFrame {
-    
+        PreparedStatement ps;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazProductos.class.getName());
 
     /**
@@ -116,9 +116,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 740, 320));
 
         Boton_Guardar.setText("Guardar");
+        Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
+        Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
         getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 120, 50));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -191,6 +193,47 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu6MouseClicked
 
+    private void Boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("insert into Productos(Nombre,Costo,Stock,Precio_venta) values(?,?,?,?)");
+            ps.setString(1, Proudcto_nombre.getText());
+            ps.setString(2, Costo.getText());
+            ps.setString(3, Stock.getText());
+            ps.setString(4, Precio_venta.getText());
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Producto registrado con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Alumno no registrado con exito");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_GuardarActionPerformed
+
+    private void Boton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("delete from Productos where lave=?");
+            ps.setInt(1, Integer.parseInt(Proudcto_nombre.getText()));
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error producto no eliminado");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_EliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -216,6 +259,13 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FrmInterfazProductos().setVisible(true));
     }
     
+    public void limpiar(){
+    Proudcto_nombre.setText(" ");
+    Costo.setText(" ");
+    Stock.setText(" ");
+    Precio_venta.setText(" ");
+    }
+    
     public DefaultTableModel mostrarVentas(){
         String[] nombreColumnas={"Producto","Cantidad disponible","Costos","Precio de venta"};
         String[] registros=new String[3];
@@ -225,7 +275,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from inventario");
+            ps = con.prepareStatement("select * from Productos");
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Producto");
@@ -239,6 +289,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al conectar");
         }return modelo;
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;

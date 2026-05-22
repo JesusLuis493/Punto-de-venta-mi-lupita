@@ -249,7 +249,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from ventas"); //hay que sentencia select por un join
+            ps = con.prepareStatement("select * from Ventas"); //hay que sentencia select por un join
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("Producto");
