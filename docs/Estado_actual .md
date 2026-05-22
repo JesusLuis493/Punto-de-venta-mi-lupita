@@ -54,8 +54,9 @@ Se agregaron secciones de llenado para las diferentes inrfazes del punto de vent
 Adicionalmente se elimino la interfaz de reportes, devido a que su funcion era solo visualizar las ventas realizadas, de manera que se muestren los datos claves de la venta, se opto por eliminar el archivo de interfaz e integrarlo dentro de la interfaz de ventas, esto con el fin de optimizar proseso de gestion.
 ![Imagen de la nueva interfaz](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/Interfaz%20de%20usuario%20_ventas.png)
 
-**Advertencia: aun no se a trabajado en las solisitudes de la interfaz a la base de datos para visualizar los datos deseados**
-**Advertencia: aun no se a trabajado en las conexiones a la nueva base de datos**
+- **Advertencia: aun no se a trabajado en las solisitudes de la interfaz a la base de datos para visualizar los datos deseados**
+- **Advertencia: aun no se a trabajado en las conexiones a la nueva base de datos**
+
 --- 
 
 ### Errores
