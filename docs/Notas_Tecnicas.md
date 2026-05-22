@@ -87,3 +87,16 @@ EL funcionamiento de guardado radica en el uso de un `try catch`, donde antes se
             con.close();
         }
 ```
+--- 
+
+**Metodo limpiar**
+Para poder agilizar el registro de productos, dentro del funcionamiento de los metodos para guardar se incluye un metodo limpiar, el cual lo que hace es que, una vez capturados los datos para la base de datos, remplaza todos los datos de los text field a un espacio vacio, visto graficamente como " ".
+**Ejemplo practico**
+```java
+    public void limpiar(){
+    Proudcto_nombre.setText(" ");
+    Costo.setText(" ");
+    Stock.setText(" ");
+    Precio_venta.setText(" ");
+    }
+```
