@@ -64,6 +64,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         Stock = new javax.swing.JTextField();
         Precio_venta = new javax.swing.JTextField();
         Costo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        Id = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -94,17 +96,17 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
 
         Table_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Productos", "Cantidad disponible", "Costo", "Precio de venta"
+                "Id", "Productos", "Costo", "Cantidad disponible", "Precio de venta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -145,6 +147,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 160, -1));
         getContentPane().add(Precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 160, -1));
         getContentPane().add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 160, -1));
+
+        jLabel7.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel7.setText("Ingrese el id del producto que desea eliminar:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, 20));
+        getContentPane().add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 160, -1));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,8 +226,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("delete from Productos where lave=?");
-            ps.setInt(1, Integer.parseInt(Proudcto_nombre.getText()));
+            ps = con.prepareStatement("delete from Productos where id_Deudores=?");
+            ps.setInt(1, Integer.parseInt(Id.getText()));
             int res = ps.executeUpdate();
             if (res>0) {
                 JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
@@ -267,7 +274,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"Producto","Cantidad disponible","Costos","Precio de venta"};
+        String[] nombreColumnas={"id_Productos","Producto","Costos","Cantidad disponible","Precio de venta"};
         String[] registros=new String[3];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
@@ -278,10 +285,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             ps = con.prepareStatement("select * from Productos");
             rs=ps.executeQuery();
             while(rs.next()){
-            registros[0]=rs.getString("Producto");
-            registros[1]=rs.getString("Cantidad disponible");
+            registros[0]=rs.getString("id_Productos");
+            registros[1]=rs.getString("Producto");
             registros[2]=rs.getString("Costos");
-            registros[3]=rs.getString("Precio de venta");
+            registros[3]=rs.getString("Cantidad disponible");
+            registros[4]=rs.getString("Precio de venta");
             modelo.addRow(registros);
             Table_Inventario.setModel(modelo);
             }
@@ -294,6 +302,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JTextField Costo;
+    private javax.swing.JTextField Id;
     private javax.swing.JLabel LblFecha;
     private javax.swing.JLabel Logo_Ventas;
     private javax.swing.JTextField Precio_venta;
@@ -306,6 +315,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

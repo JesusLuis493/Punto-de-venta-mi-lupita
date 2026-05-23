@@ -57,6 +57,15 @@ Adicionalmente se elimino la interfaz de reportes, devido a que su funcion era s
 - **Advertencia: aun no se a trabajado en las solisitudes de la interfaz a la base de datos para visualizar los datos deseados**
 - **Advertencia: aun no se a trabajado en las conexiones a la nueva base de datos**
 
+- 23 de mayo del 2026
+Se realizo una correccion importante para el correcto funcinamiento del boton de eliminar dentro de las interfases de usuario, se llevo acabo la adicion de un `text field` el cual estara encargado de pedir el id del registro que se desea eliminar.
+Dentro del codigo del boton de eliminar se corrigio la sentencia dentro del try catch para cordinar el input del text field con los campos de la base de datos.
+```java
+        try {
+            ps = con.prepareStatement("delete from Productos where id_Deudores=?");
+            ps.setInt(1, Integer.parseInt(Id.getText()));
+            int res = ps.executeUpdate();
+```
 --- 
 
 ### Errores

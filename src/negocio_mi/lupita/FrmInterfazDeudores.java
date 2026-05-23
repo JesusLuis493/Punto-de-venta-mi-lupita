@@ -17,7 +17,8 @@ import java.util.Date;
  * @author jesus-luis
  */
 public class FrmInterfazDeudores extends javax.swing.JFrame {
-    
+        PreparedStatement ps;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazDeudores.class.getName());
 
     /**
@@ -116,9 +117,11 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 740, 320));
 
         Boton_Guardar.setText("Guardar");
+        Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 600, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
+        Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
         getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, 120, 50));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -191,6 +194,46 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu6MouseClicked
 
+    private void Boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("insert into Productos(Numero de venta,Nombre,Monto pendiente) values(?,?,?)");
+            ps.setString(1, TFNumVenta.getText());
+            ps.setString(2, TFDeudor.getText());
+            ps.setString(3, TFDeuda.getText());
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Deudor registrado con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Deudor no registrado con exito");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_GuardarActionPerformed
+
+    private void Boton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("delete from Productos where id_Deudores=?");
+            ps.setInt(1, Integer.parseInt(TFDeleteDeudor.getText()));
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error producto no eliminado");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_EliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -214,6 +257,12 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmInterfazDeudores().setVisible(true));
+    }
+    
+    public void limpiar(){
+    TFNumVenta.setText(" ");
+    TFDeudor.setText(" ");
+    TFDeuda.setText(" ");
     }
     
     public DefaultTableModel mostrarVentas(){

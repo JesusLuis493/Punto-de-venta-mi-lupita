@@ -17,7 +17,8 @@ import java.util.Date;
  * @author jesus-luis
  */
 public class FrmInterfazVentas extends javax.swing.JFrame {
-    
+        PreparedStatement ps;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazVentas.class.getName());
 
     /**
