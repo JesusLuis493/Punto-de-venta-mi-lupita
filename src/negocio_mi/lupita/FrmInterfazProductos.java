@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmInterfazProductos extends javax.swing.JFrame {
         PreparedStatement ps;
+        ResultSet rs;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazProductos.class.getName());
 
     /**
@@ -28,6 +29,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
         mostrarfecha();
+        mostrarVentas();
     }
 
     public void mostrarfecha() {
@@ -96,23 +98,15 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
 
         Table_Inventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Productos", "Costo", "Cantidad disponible", "Precio de venta"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(Table_Inventario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 740, 320));
@@ -274,8 +268,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"id_Productos","Producto","Costos","Cantidad disponible","Precio de venta"};
-        String[] registros=new String[3];
+        String[] nombreColumnas={"id_Producto","Nombre","Costo","Stock","Precio de venta"};
+        String[] registros=new String[5];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -286,9 +280,9 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             rs=ps.executeQuery();
             while(rs.next()){
             registros[0]=rs.getString("id_Productos");
-            registros[1]=rs.getString("Producto");
-            registros[2]=rs.getString("Costos");
-            registros[3]=rs.getString("Cantidad disponible");
+            registros[1]=rs.getString("Nombre");
+            registros[2]=rs.getString("Costo");
+            registros[3]=rs.getString("Stock");
             registros[4]=rs.getString("Precio de venta");
             modelo.addRow(registros);
             Table_Inventario.setModel(modelo);

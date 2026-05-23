@@ -18,6 +18,8 @@ import java.util.Date;
  */
 public class FrmInterfazVentas extends javax.swing.JFrame {
         PreparedStatement ps;
+        PreparedStatement ps1;
+        ResultSet rs;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazVentas.class.getName());
 
@@ -73,6 +75,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         TFDescuento = new javax.swing.JTextField();
         TFSubtotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TFFecha_venta = new javax.swing.JTextField();
+        TFId_ventas = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -129,17 +135,20 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 740, 320));
 
         Boton_Guardar.setText("Guardar");
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, 130, 50));
+        Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 610, 130, 50));
 
         Boton_Eliminar.setText("Eliminar");
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 590, 120, 50));
+        Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, 120, 50));
 
         TFTotal.setEditable(false);
-        getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, 200, 70));
+        TFTotal.addActionListener(this::TFTotalActionPerformed);
+        getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 580, 200, 70));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, -1, -1));
 
         jLabel4.setText("Producto");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
@@ -168,6 +177,14 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
         jLabel10.setText("Reporte de ventas");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
+
+        jLabel11.setText("Fehca de venta");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, -1, -1));
+        getContentPane().add(TFFecha_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 100, -1));
+        getContentPane().add(TFId_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 120, -1));
+
+        jLabel12.setText("Insertar id de venta a eliminar");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, -1, -1));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,6 +233,90 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu6MouseClicked
 
+    private void Boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("insert into Ventas(Fecha,Descuento,Monto resivido,total) values(?,?,?,?)");
+            ps.setString(1, TFFecha_venta.getText());
+            ps.setString(2, TFDescuento.getText());
+            ps.setString(3, TFMontoResivido.getText());
+            ps.setString(4, TFTotal.getText());     //recalcular para que se llene solo
+            ps1 = con.prepareStatement("insert into Detalles_ventas(id_Productos,Cantidad,Precio_uitario,Subtotal) values(?,?,?,?)");
+            ps1.setString(1, TFProducto.getText());
+            ps1.setString(2, TFCantidad.getText());
+            ps1.setString(3, TFPrecioProducto.getText());
+            ps1.setString(4, TFSubtotal.getText());
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Venta registrado con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Venta no registrado con exito");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_GuardarActionPerformed
+
+    private void Boton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarActionPerformed
+        Conexion_BD conect=new Conexion_BD();
+        Connection con=conect.conectar();
+        try {
+            ps = con.prepareStatement("delete from Productos where id_ventas=?");
+            ps.setInt(1, Integer.parseInt(TFId_ventas.getText()));
+            int res = ps.executeUpdate();
+            if (res>0) {
+                JOptionPane.showMessageDialog(null, "Venta eliminada con exito");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Venta no eliminada");
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_Boton_EliminarActionPerformed
+
+    private void TFTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFTotalActionPerformed
+    Conexion_BD conect = new Conexion_BD();
+    Connection con = conect.conectar();
+    
+    try {
+        // Primero obtener el último id_venta registrado
+        String sqlMaxId = "SELECT MAX(id_venta) as id_venta FROM Ventas";
+        ps = con.prepareStatement(sqlMaxId);
+        rs = ps.executeQuery();
+        
+        int idVenta = 0;
+        if (rs.next()) {
+            idVenta = rs.getInt("id_venta");
+        }
+        
+        // Luego calcular el total con ese id_venta
+        String sql = "SELECT SUM(dv.Subtotal * (1 - dv.Descuento/100)) as total " +
+                     "FROM Detalle_Ventas dv " +
+                     "WHERE dv.id_venta = ?";
+        
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, idVenta);
+        rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            double total = rs.getDouble("total");
+            TFTotal.setText(String.format("%.2f", total));
+        }
+        
+        rs.close();
+        ps.close();
+        con.close();
+        
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_TFTotalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +342,17 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FrmInterfazVentas().setVisible(true));
     }
     
+    public void limpiar(){
+    TFProducto.setText(" ");
+    TFCantidad.setText(" ");
+    TFPrecioProducto.setText(" ");
+    TFSubtotal.setText(" ");
+    TFFecha_venta.setText(" ");
+    TFDescuento.setText(" ");
+    TFMontoResivido.setText(" ");
+    TFSubtotal.setText(" ");
+    }
+    
     public DefaultTableModel mostrarVentas(){
         String[] nombreColumnas={"Producto","Cantidad","Subtotal","Descuento"};
         String[] registros=new String[3];
@@ -250,9 +362,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
-            ps = con.prepareStatement("select * from Ventas"); //hay que sentencia select por un join
+            ps = con.prepareStatement("SELECT v.id_venta, p.Producto, dv.Cantidad, dv.Subtotal, dv.Descuento FROM Ventas v INNER JOIN Detalle_Ventas dv ON v.id_venta = dv.id_venta INNER JOIN Productos p ON dv.id_producto = p.id_producto;");
             rs=ps.executeQuery();
             while(rs.next()){
+            registros[0]=rs.getString("id_venta");
             registros[0]=rs.getString("Producto");
             registros[1]=rs.getString("Cantidad");
             registros[2]=rs.getString("Subtotal");
@@ -271,6 +384,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JLabel Logo_Ventas;
     private javax.swing.JTextField TFCantidad;
     private javax.swing.JTextField TFDescuento;
+    private javax.swing.JTextField TFFecha_venta;
+    private javax.swing.JTextField TFId_ventas;
     private javax.swing.JTextField TFMontoResivido;
     private javax.swing.JTextField TFPrecioProducto;
     private javax.swing.JTextField TFProducto;
@@ -279,6 +394,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JTable Table_Ventas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

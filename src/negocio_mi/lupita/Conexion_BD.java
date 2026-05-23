@@ -6,16 +6,12 @@ package negocio_mi.lupita;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author jesus-luis
- */
 public class Conexion_BD {
     Connection conectar = null;
     public Connection conectar(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conectar=DriverManager.getConnection("jdbc:mysql://localhost/mybd","root","Luis1302.");
+            conectar=DriverManager.getConnection("jdbc:mysql://localhost/mydb","root","Luis1302.");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }return conectar;
