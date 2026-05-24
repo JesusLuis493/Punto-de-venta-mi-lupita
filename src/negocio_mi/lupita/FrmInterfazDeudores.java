@@ -101,17 +101,9 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Id_deudor", "Nombre", "Numero de venta", "Monto prendiente"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(Table_Deudores);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 740, 320));
@@ -198,19 +190,16 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("insert into Productos(Numero de venta,Nombre,Monto pendiente) values(?,?,?)");
+            ps = con.prepareStatement("insert into Deudores(id_Ventas,Nombre,Monto_pendiente) values(?,?,?)");
             ps.setString(1, TFNumVenta.getText());
             ps.setString(2, TFDeudor.getText());
             ps.setString(3, TFDeuda.getText());
-            int res = ps.executeUpdate();
-            if (res>0) {
-                JOptionPane.showMessageDialog(null, "Deudor registrado con exito");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Deudor no registrado con exito");
-            }
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Deudor registrado con exito");
+            limpiar();
             con.close();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_Boton_GuardarActionPerformed
@@ -221,15 +210,12 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         try {
             ps = con.prepareStatement("delete from Productos where id_Deudores=?");
             ps.setInt(1, Integer.parseInt(TFDeleteDeudor.getText()));
-            int res = ps.executeUpdate();
-            if (res>0) {
+            ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
                 limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Error producto no eliminado");
-            }
             con.close();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_Boton_EliminarActionPerformed
@@ -266,8 +252,8 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"Id_deudor","Nombre","Numero de venta","Cantidad a dever"};
-        String[] registros=new String[3];
+        String[] nombreColumnas={"id_Deudores","id_Ventas","Nombre","Monto_pendeinte"};
+        String[] registros=new String[4];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -277,10 +263,10 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
             ps = con.prepareStatement("select * from Deudores");
             rs=ps.executeQuery();
             while(rs.next()){
-            registros[0]=rs.getString("Id_deudor");
-            registros[1]=rs.getString("Nombre");
-            registros[2]=rs.getString("Numero de venta");
-            registros[3]=rs.getString("Cantidad a dever");
+            registros[0]=rs.getString("id_Deudores");
+            registros[1]=rs.getString("id_Ventas");
+            registros[2]=rs.getString("Nombre");
+            registros[3]=rs.getString("Monto_pendeinte");
             modelo.addRow(registros);
             Table_Deudores.setModel(modelo);
             }

@@ -1,5 +1,11 @@
 # Notas_Tecnicas
 
+## 📋 Tabla de Contenidos
+- [Funcionamiento del login](#-Funcionamiento-del-login)
+- [Funcionamiento de la conexion mysql](#-Funcionamiento-de-la-conexion-mysql)
+- [Funcionamiento del conjunto de interfasez](#-Funcionamiento-del-conjunto-de-interfasez)
+- [Funcionamiento de la interfaz grafica de ventas](#-Funcionamiento-de-la-interfaz-grafica-de-ventas)
+
 ## Funcionamiento del login
 El login esta compuesto de manera completamente aparte de la base de datos, esto implica que tanto el usuario/s como la contraseña/s estan expuestas directamente en el codigo del login, ubicado en el documento de `FrmLogin.java`.
 ```java
@@ -70,24 +76,20 @@ El metodo `mostar` hace uso de 2 strings arrays los cuales guardan el nombre y l
 EL funcionamiento de guardado radica en el uso de un `try catch`, donde antes se confirma la conexion a la base de datos, una ve confirmada, dentro del try se hace uso de la variable ps (PreparedStatement) para la sentencia sql `insert into alumnos(clave,nombre,domicilio,telefono,correo_electronico,genero) values(?,?,?,?,?,?)` (por poner un ejemplo), seguido de sets strings para poder ingresar los vaores de su preferencia la tabla.
 **Ejemplo practico**
 ```java
-        Conexion conect=new Conexion();
+Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("insert into alumnos(clave,nombre,domicilio,telefono,correo_electronico,genero) values(?,?,?,?,?,?)");
-            ps.setString(1, TxtClave.getText());
-            ps.setString(2, TxtNombre.getText());
-            ps.setString(3, TxtDomicilio.getText());
-            ps.setString(4, TxtTelefono.getText());
-            ps.setString(5, TxtCorreo.getText());
-            ps.setString(6, ComboGnenero.getSelectedItem().toString());
-            int res = ps.executeUpdate();
-            if (res>0) {
-                JOptionPane.showMessageDialog(null, "Alumno guardado con exito");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Alumno no guardado con exito");
-            }
-            con.close();
+            ps = con.prepareStatement("insert into Deudores(id_Ventas,Nombre,Monto_pendiente) values(?,?,?)");  //sentencai sql 
+            ps.setString(1, TFNumVenta.getText());
+            ps.setString(2, TFDeudor.getText());
+            ps.setString(3, TFDeuda.getText());
+            ps.executeUpdate();                     //guardar los valores ingresados
+            JOptionPane.showMessageDialog(null, "Deudor registrado con exito");   //mensaje de exito
+            limpiar();                  //limpiar los text field
+            con.close();                //concluye la operacion
+        } catch (Exception e) {         //se activa en caso de fallas
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo la operacion
+            System.out.println(e.getMessage());
         }
 ```
 
@@ -108,20 +110,25 @@ Con el fin de poder realizar una manipulacion eficiente de la base de datos, elm
 mediante el uso de la sentencia `delete` en mysql, se busca el valor ingresado en el apartado de eliminar para ver si hay una coinsidencia, en caso de averla, se elimina el registro.
 **Ejemplo practico**
 ```java
-        Conexion_BD conect=new Conexion_BD();
+    Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("delete from Productos where id_Deudores=?");  //valor ingresado en la interfaz
-            ps.setInt(1, Integer.parseInt(Id.getText()));                            //Busqueda del valor en base de datos
-            int res = ps.executeUpdate();
-            if (res>0) {
+            ps = con.prepareStatement("delete from Productos where id_Productos=?");        //introduce el registro a eliminar
+            ps.setInt(1, Integer.parseInt(Id.getText()));                                   //busca el resgistro a eliminar
+            ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Error producto no eliminado");
-            }
-            con.close();
-        } catch (Exception e) {
+                limpiar();      //limpia los text field
+            con.close();        //cierra la operacion
+        } catch (Exception e) {     //en caso de aver un fallo
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
             System.out.println(e.getMessage());
         }
 ```
+---
+
+## Funcionamiento de la interfaz grafica de ventas
+Esta seccion aborda de la mejor manera posible el funcionamiento del archivo [FrmInterfazVentas](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/src/negocio_mi/lupita/FrmInterfazVentas.java), esto devido a que en este archivo se maneja un caso particular de funcionamiento.
+
+### Contexto
+Con el fin de abstraer un poco la interfaz con el fin de facilitar el uso del usuario final se opto por unificar en una misma interfaz las tablas de `Ventas` y `Detalles_ventas`, de tal manera que se pudieran llenar los datos relevantes para ambas tablas y en la parte inferior visualizar un reporte de ventas conformado por la informacion de ambas tablas.
+**consultar el documento [Estado_actual.md](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/docs/Estado_actual%20.md) en la fecha `21 de mayo del 2026` dentro del apartado de `login/interfaz` para mayor informacion.

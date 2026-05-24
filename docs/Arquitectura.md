@@ -43,7 +43,7 @@ Punto-de-venta-mi-lupita
 
 ## Capas de arquitectura
 ### 1️⃣Capa de negocios (core)
-**Ubicasion:** Incerte aqui la ubicasion.
+**Ubicasion:** src/
 **Responsabilidad:** Llevar acabo las conexiones entre la base de datos y la interfaz grafica de usuario (capa CLI).
 **Componentes**
 
@@ -94,7 +94,7 @@ public class Conexion_BD {
 ---
 
 ### 2️⃣Capa de presentacion
-**Ubicasion:** Incerte aqui la ubicasion.
+**Ubicasion:** src/
 **Responsabilidad:** Poder realizar de manera sensilla la manipulacion a la base de datos mediante elementos graficos.
 **Componentes**
 

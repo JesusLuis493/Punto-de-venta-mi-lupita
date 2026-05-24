@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author jesus-luis
@@ -203,15 +204,12 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             ps.setString(2, Costo.getText());
             ps.setString(3, Stock.getText());
             ps.setString(4, Precio_venta.getText());
-            int res = ps.executeUpdate();
-            if (res>0) {
+            ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Producto registrado con exito");
                 limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Alumno no registrado con exito");
-            }
             con.close();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_Boton_GuardarActionPerformed
@@ -220,17 +218,14 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("delete from Productos where id_Deudores=?");
+            ps = con.prepareStatement("delete from Productos where id_Productos=?");
             ps.setInt(1, Integer.parseInt(Id.getText()));
-            int res = ps.executeUpdate();
-            if (res>0) {
+            ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Producto eliminado con exito");
                 limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Error producto no eliminado");
-            }
             con.close();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_Boton_EliminarActionPerformed
@@ -268,11 +263,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"id_Producto","Nombre","Costo","Stock","Precio de venta"};
+        String[] nombreColumnas={"id_Productos","Nombre","Costo","Stock","Precio_venta"};
         String[] registros=new String[5];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+        ps=null;
+        rs=null;
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
@@ -283,7 +278,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
             registros[1]=rs.getString("Nombre");
             registros[2]=rs.getString("Costo");
             registros[3]=rs.getString("Stock");
-            registros[4]=rs.getString("Precio de venta");
+            registros[4 ]=rs.getString("Precio_venta");
             modelo.addRow(registros);
             Table_Inventario.setModel(modelo);
             }

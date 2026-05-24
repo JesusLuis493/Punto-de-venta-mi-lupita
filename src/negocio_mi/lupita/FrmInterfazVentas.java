@@ -7,10 +7,12 @@ package negocio_mi.lupita;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.sql.Statement;
 
 /**
  *
@@ -234,28 +236,47 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu6MouseClicked
 
     private void Boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarActionPerformed
-        Conexion_BD conect=new Conexion_BD();
-        Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("insert into Ventas(Fecha,Descuento,Monto resivido,total) values(?,?,?,?)");
+            Conexion_BD conect = new Conexion_BD();
+            Connection con = conect.conectar();
+
+            // Inicia transacción
+            con.setAutoCommit(false);
+
+            // 1INSERT en Ventas
+            ps = con.prepareStatement(
+                "INSERT INTO Ventas(Fecha, Descuento, Monto_resivido) VALUES(?, ?, ?)",
+                Statement.RETURN_GENERATED_KEYS  // ← Obtiene el ID generado
+            );
             ps.setString(1, TFFecha_venta.getText());
-            ps.setString(2, TFDescuento.getText());
-            ps.setString(3, TFMontoResivido.getText());
-            ps.setString(4, TFTotal.getText());     //recalcular para que se llene solo
-            ps1 = con.prepareStatement("insert into Detalles_ventas(id_Productos,Cantidad,Precio_uitario,Subtotal) values(?,?,?,?)");
-            ps1.setString(1, TFProducto.getText());
-            ps1.setString(2, TFCantidad.getText());
-            ps1.setString(3, TFPrecioProducto.getText());
-            ps1.setString(4, TFSubtotal.getText());
-            int res = ps.executeUpdate();
-            if (res>0) {
-                JOptionPane.showMessageDialog(null, "Venta registrado con exito");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Venta no registrado con exito");
+            ps.setDouble(2, Double.parseDouble(TFDescuento.getText()));
+            ps.setDouble(3, Double.parseDouble(TFMontoResivido.getText()));
+            ps.executeUpdate();
+
+            // 2️Obtener el ID de la venta insertada
+            rs = ps.getGeneratedKeys();
+            int idVenta = 0;
+            if (rs.next()) {
+                idVenta = rs.getInt(1);
             }
-            con.close();
+
+            // 3️INSERT en Detalles_venta CON el ID de venta
+            ps1 = con.prepareStatement(
+                "INSERT INTO Detalles_venta(id_Ventas, id_Productos, Cantidad, Precio_unitario, Subtotal) VALUES(?, ?, ?, ?, ?)"
+            );
+            ps1.setInt(1, idVenta);  // ← ID de la venta recién insertada
+            ps1.setInt(2, Integer.parseInt(TFProducto.getText()));
+            ps1.setInt(3, Integer.parseInt(TFCantidad.getText()));
+            ps1.setDouble(4, Double.parseDouble(TFPrecioProducto.getText()));
+            ps1.setDouble(5, Double.parseDouble(TFSubtotal.getText()));
+            ps1.executeUpdate();
+
+            // 4️Confirma todo
+            con.commit();
+            JOptionPane.showMessageDialog(null, "Venta registrada correctamente");
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_Boton_GuardarActionPerformed
@@ -264,7 +285,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         Conexion_BD conect=new Conexion_BD();
         Connection con=conect.conectar();
         try {
-            ps = con.prepareStatement("delete from Productos where id_ventas=?");
+            ps = con.prepareStatement("delete from Ventas where id_ventas=?");
             ps.setInt(1, Integer.parseInt(TFId_ventas.getText()));
             int res = ps.executeUpdate();
             if (res>0) {
@@ -343,14 +364,14 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     }
     
     public void limpiar(){
-    TFProducto.setText(" ");
-    TFCantidad.setText(" ");
-    TFPrecioProducto.setText(" ");
-    TFSubtotal.setText(" ");
-    TFFecha_venta.setText(" ");
-    TFDescuento.setText(" ");
-    TFMontoResivido.setText(" ");
-    TFSubtotal.setText(" ");
+        TFFecha_venta.setText("");
+        TFDescuento.setText("");
+        TFTotal.setText(" ");
+        TFMontoResivido.setText("");
+        TFProducto.setText("");
+        TFCantidad.setText("");
+        TFPrecioProducto.setText("");
+        TFSubtotal.setText("");
     }
     
     public DefaultTableModel mostrarVentas(){
