@@ -18,6 +18,7 @@ import java.util.Date;
  */
 public class FrmInterfazDeudores extends javax.swing.JFrame {
         PreparedStatement ps;
+        ResultSet rs;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazDeudores.class.getName());
 
@@ -29,6 +30,7 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setFocusable(true);
         mostrarfecha();
+        mostrarVentas();
     }
 
     public void mostrarfecha() {
@@ -252,11 +254,11 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
     }
     
     public DefaultTableModel mostrarVentas(){
-        String[] nombreColumnas={"id_Deudores","id_Ventas","Nombre","Monto_pendeinte"};
+        String[] nombreColumnas={"id_Deudores","id_Ventas","Nombre","Monto_pendiente"};
         String[] registros=new String[4];
         DefaultTableModel modelo=new DefaultTableModel(null,nombreColumnas);
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+        ps=null;
+        rs=null;
         try {
             Conexion_BD conect=new Conexion_BD();
             Connection con=conect.conectar();
@@ -266,12 +268,13 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
             registros[0]=rs.getString("id_Deudores");
             registros[1]=rs.getString("id_Ventas");
             registros[2]=rs.getString("Nombre");
-            registros[3]=rs.getString("Monto_pendeinte");
+            registros[3]=rs.getString("Monto_pendiente");
             modelo.addRow(registros);
             Table_Deudores.setModel(modelo);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al conectar");
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());   //imprime exactamente donde fallo
+            System.out.println(e.getMessage());
         }return modelo;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
