@@ -12,12 +12,15 @@ Crear un punto de venta adaptado 100% a las nesesidades del usuario final, cumpl
 ## Estructura de carpetas
 ```
 Punto-de-venta-mi-lupita
+├── Base de datos/
+│   ├── PuntoDeVenta.mwr      # Diagrama ER de la base de datos
+│   └── PuntoDeVenta.sql      # Script de la base de datos
+├── Imagenes/                   # Imagenes de las interfases
 ├── docs/                      # Documentacion aserca del proyecto
 │   ├── BD Diagrama.png
 │   ├── Arquitectura.md
 │   ├── Estado_actual.md
 │   └── Notas_tecnicas.md
-├── Imagenes/
 ├── nbprojects/
 │   ├── private/
 │   ├── build-impl.xml
@@ -124,3 +127,10 @@ public class Conexion_BD {
 **base de datos**
 [nueva propuesta de base de datos](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.2.png)         
 **Proposito:** mantener seguros los datos incertados dentro de esta y permitir su manipulacion mediante la interfaz grafica.
+--- 
+
+## 👨‍💻 Autor
+Jesús Luis | 4to Semestre - Ingeniería en Sistemas
+
+## 📝 Licencia
+MIT License - Ver [LICENSE](LICENSE)

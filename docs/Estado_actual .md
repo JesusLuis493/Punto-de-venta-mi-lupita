@@ -137,6 +137,8 @@ ps1 = con.prepareStatement("insert into Detalles_venta(id_Productos,Cantidad,Pre
 ```
 **Advertencia: este cambio no asegura aun el correcto funcionamiento de la interfaz, aun se sigue testeando la funcionalidad para que cuadre con la base de datos**
 
+- 25 de mayo del 2026
+Se elimino el `Text Field` de la interfaz de ventas que se encargaba de mostrar el total el momento de realizar una venta, se remplazo por un `Label`, adicionalmente se cambio el `Text Field` correspondiente al `Id_Producto` con un `Spinner` para evitar errores al momento de ingresar valores no numericos.
 --- 
 
 ## Documentacion relacionada

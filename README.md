@@ -39,12 +39,15 @@ CI/CD:          GitHub Actions
 ## 📂 Estructura del proyecto
 ```
 Punto-de-venta-mi-lupita
+├── Base de datos/
+│   ├── PuntoDeVenta.mwr      # Diagrama ER de la base de datos
+│   └── PuntoDeVenta.sql      # Script de la base de datos
+├── Imagenes/                   # Imagenes de las interfases
 ├── docs/                      # Documentacion aserca del proyecto
 │   ├── BD Diagrama.png
 │   ├── Arquitectura.md
 │   ├── Estado_actual.md
 │   └── Notas_tecnicas.md
-├── Imagenes/
 ├── nbprojects/
 │   ├── private/
 │   ├── build-impl.xml
