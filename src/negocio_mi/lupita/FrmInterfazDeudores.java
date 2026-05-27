@@ -56,7 +56,6 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         Logo_Ventas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         Boton_Guardar = new javax.swing.JButton();
         LblFecha = new javax.swing.JLabel();
@@ -78,6 +77,7 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         Boton_Eliminar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -99,19 +99,20 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
 
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, -1));
-
         jTextField2.setEditable(false);
         jTextField2.setText("jesusdev@gmail.com");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 160, -1));
 
+        Boton_Guardar.setBackground(new java.awt.Color(115, 148, 226));
         Boton_Guardar.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        Boton_Guardar.setForeground(new java.awt.Color(255, 255, 255));
+        Boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
         Boton_Guardar.setText("Guardar deudor");
         Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 690, 270, 50));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendario.png"))); // NOI18N
         getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -178,13 +179,22 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         jLabel9.setText("Acciones");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        Boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         Boton_Eliminar.setText("Eliminar");
         Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
         jPanel3.add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 140, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 400, 130));
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
+        jLabel2.setText("Usuario");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, -1, -1));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 850));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bienes.png"))); // NOI18N
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -193,6 +203,7 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inventario-disponible.png"))); // NOI18N
         jMenu2.setText("Inventario");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -201,6 +212,7 @@ public class FrmInterfazDeudores extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

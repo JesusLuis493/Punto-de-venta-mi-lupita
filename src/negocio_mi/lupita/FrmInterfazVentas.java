@@ -21,6 +21,7 @@ import javax.swing.SwingUtilities;
 public class FrmInterfazVentas extends javax.swing.JFrame {
         PreparedStatement ps;
         PreparedStatement ps1;
+        PreparedStatement ps2;
         ResultSet rs;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmInterfazVentas.class.getName());
@@ -35,6 +36,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         mostrarfecha();
         mostrarVentas();
         mostrarTotal();
+        mostrarSubtotal();
     }
 
     public void mostrarfecha() {
@@ -57,20 +59,15 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         Logo_Ventas = new javax.swing.JLabel();
         LblFecha = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         Boton_Guardar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        TFFecha_venta = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         TFPrecioProducto = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         TFMontoResivido = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        TFSubtotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         SpinnerProducto = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
@@ -78,6 +75,8 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         TFDescuento = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TFFecha_venta = new javax.swing.JTextField();
         TFTotal = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -88,6 +87,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         TFId_ventas = new javax.swing.JTextField();
         Boton_Eliminar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        TFSubtotal = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -107,20 +110,21 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 130, 40));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 90, 20));
+        LblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendario.png"))); // NOI18N
+        getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 150, 20));
 
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
-
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, -1));
 
         jTextField2.setEditable(false);
         jTextField2.setText("jesusdev@gmail.com");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 170, -1));
 
+        Boton_Guardar.setBackground(new java.awt.Color(115, 148, 226));
         Boton_Guardar.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        Boton_Guardar.setText("Guardar venta");
+        Boton_Guardar.setForeground(new java.awt.Color(255, 255, 255));
+        Boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-flexible.png"))); // NOI18N
+        Boton_Guardar.setText("  Guardar venta");
         Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 710, 270, 60));
 
@@ -131,10 +135,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
         jLabel10.setText("Reporte de ventas");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
-
-        jLabel11.setText("Fehca de venta");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, -1));
-        getContentPane().add(TFFecha_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 100, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,10 +147,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
         jPanel1.add(TFMontoResivido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 100, -1));
 
-        jLabel9.setText("Subtotal");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
-        jPanel1.add(TFSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 100, -1));
-
         jLabel4.setText("Id_Producto");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
         jPanel1.add(SpinnerProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 110, -1));
@@ -160,17 +156,20 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jPanel1.add(TFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 100, -1));
 
         jLabel6.setText("Descuento");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
-        jPanel1.add(TFDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 100, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
+        jPanel1.add(TFDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 100, -1));
 
         jLabel13.setFont(new java.awt.Font("Liberation Sans", 1, 20)); // NOI18N
         jLabel13.setText("Detalles del producto");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 670, 140));
+        jLabel11.setText("Fehca de venta");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
+        jPanel1.add(TFFecha_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 100, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 750, 140));
 
         TFTotal.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
-        TFTotal.setText("jLabel13");
         getContentPane().add(TFTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -204,17 +203,37 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
         jPanel3.add(TFId_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, 30));
 
-        Boton_Eliminar.setText("Eliminar");
+        Boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        Boton_Eliminar.setText("  Eliminar");
         Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
         jPanel3.add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 130, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 340, 120));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel9.setText("Subtotal :");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        TFSubtotal.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        TFSubtotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ahorrar-dinero.png"))); // NOI18N
+        jPanel5.add(TFSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 120, 60));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 650, 450, 140));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
+        jLabel2.setText("Usuario");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, -1, -1));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 810));
 
         jMenuBar1.setBorder(null);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bienes.png"))); // NOI18N
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -223,6 +242,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inventario-disponible.png"))); // NOI18N
         jMenu2.setText("Inventario");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -231,6 +251,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -286,7 +307,16 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
             if (rs.next()) {
                 idVenta = rs.getInt(1);
             }
+            
+            // 3 DEBUG: Ver qué ID de producto está intentando insertar
+            int idProducto = (Integer) SpinnerProducto.getValue();
+            System.out.println("ID Producto del Spinner: " + idProducto);
+            
+            double precioUnitario = Double.parseDouble(TFPrecioProducto.getText());
+            int cantidad = Integer.parseInt(TFCantidad.getText());
 
+            // Calcular el subtotal
+            double subtotal = precioUnitario * cantidad;
             // 3️INSERT en Detalles_venta CON el ID de venta
             ps1 = con.prepareStatement(
                 "INSERT INTO Detalles_venta(id_Ventas, id_Productos, Cantidad, Precio_unitario, Subtotal) VALUES(?, ?, ?, ?, ?)"
@@ -295,8 +325,16 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
             ps1.setInt(2, (Integer) SpinnerProducto.getValue()); // ← Del spinner
             ps1.setInt(3, Integer.parseInt(TFCantidad.getText()));
             ps1.setDouble(4, Double.parseDouble(TFPrecioProducto.getText()));
-            ps1.setDouble(5, Double.parseDouble(TFSubtotal.getText()));
+            ps1.setDouble(5, subtotal);  // ← Subtotal calculado
             ps1.executeUpdate();
+
+            // 4️Restar del stock
+            ps2 = con.prepareStatement(
+                "UPDATE Productos SET Stock = Stock - ? WHERE id_Productos = ?"
+            );
+            ps2.setInt(1, Integer.parseInt(TFCantidad.getText())); // Cantidad vendida
+            ps2.setInt(2, idProducto);
+            ps2.executeUpdate();
 
             // 4️Confirma todo
             con.commit();
@@ -327,6 +365,56 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Boton_EliminarActionPerformed
 
+    public void mostrarSubtotal()
+{
+    Conexion_BD conect = new Conexion_BD();
+    Connection con = conect.conectar();
+    PreparedStatement ps1 = null;  // ← Nueva variable
+    PreparedStatement ps2 = null;  // ← Nueva variable
+    ResultSet rs1 = null;
+    ResultSet rs2 = null;
+
+    try {
+        // 1️⃣ Obtener el último ID de venta
+        String sqlMaxId = "SELECT MAX(id_Ventas) as id_Ventas FROM Ventas";
+        ps1 = con.prepareStatement(sqlMaxId);
+        rs1 = ps1.executeQuery();
+        
+        int idVenta = 0;
+        if (rs1.next()) {
+            idVenta = rs1.getInt("id_Ventas");
+        }
+        
+        if (idVenta == 0) {
+            TFSubtotal.setText("0.00");
+            return;
+        }
+        
+        // 2️⃣ Obtener el subtotal
+        String sql = "SELECT SUM(Subtotal) as Subtotal FROM Detalles_venta WHERE id_Ventas = ?";
+        ps2 = con.prepareStatement(sql);
+        ps2.setInt(1, idVenta);  // ← Ahora es ps2
+        rs2 = ps2.executeQuery();
+        
+        if (rs2.next()) {
+            double subtotal = rs2.getDouble("Subtotal");
+            TFSubtotal.setText(String.format("%.2f", subtotal));
+            System.out.println("Subtotal: " + subtotal);
+        }
+        
+        rs1.close();
+        rs2.close();
+        ps1.close();
+        ps2.close();
+        con.close();
+        
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        System.out.println("Error: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+    
     public void mostrarTotal()
     {
         Conexion_BD conect = new Conexion_BD();
@@ -353,6 +441,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
             double total = rs.getDouble("total");
             TFTotal.setText(String.format("%.2f", total));
         }
+        
         
         rs.close();
         ps.close();
@@ -422,7 +511,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JTextField TFId_ventas;
     private javax.swing.JTextField TFMontoResivido;
     private javax.swing.JTextField TFPrecioProducto;
-    private javax.swing.JTextField TFSubtotal;
+    private javax.swing.JLabel TFSubtotal;
     private javax.swing.JLabel TFTotal;
     private javax.swing.JTable Table_Ventas;
     private javax.swing.JLabel jLabel1;
@@ -450,6 +539,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

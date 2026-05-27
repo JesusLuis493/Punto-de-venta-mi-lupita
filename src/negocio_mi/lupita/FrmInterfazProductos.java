@@ -52,9 +52,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        Logo_Ventas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Inventario = new javax.swing.JTable();
@@ -77,6 +75,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        Logo_Ventas = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -91,15 +91,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
-        Logo_Ventas.setText("Inventario");
-        getContentPane().add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 110, 40));
-
         jLabel1.setText("Fecha");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
-
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, -1, -1));
 
         jTextField2.setEditable(false);
         jTextField2.setText("jesusdev@gmail.com");
@@ -120,11 +113,15 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 740, 320));
 
+        Boton_Guardar.setBackground(new java.awt.Color(115, 148, 226));
         Boton_Guardar.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        Boton_Guardar.setForeground(new java.awt.Color(255, 255, 255));
+        Boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-flexible.png"))); // NOI18N
         Boton_Guardar.setText("Agregarr prducto");
         Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 700, 240, 60));
 
+        Boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         Boton_Eliminar.setText("Eliminar");
         Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
         getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 750, 170, 30));
@@ -177,8 +174,20 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 400, 110));
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
+        Logo_Ventas.setText("Inventario");
+        jPanel5.add(Logo_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 190, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
+        jLabel2.setText("Usuario");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 840));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bienes.png"))); // NOI18N
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -187,6 +196,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/inventario-disponible.png"))); // NOI18N
         jMenu2.setText("Inventario");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,6 +205,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
         jMenu6.setText("Deudores");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
