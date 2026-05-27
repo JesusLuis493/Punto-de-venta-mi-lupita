@@ -7,12 +7,12 @@ package negocio_mi.lupita;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.Statement;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -100,7 +100,6 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(242, 233, 187));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo_Ventas.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
@@ -120,9 +119,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         jTextField2.setText("jesusdev@gmail.com");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 170, -1));
 
-        Boton_Guardar.setBackground(new java.awt.Color(52, 132, 193));
         Boton_Guardar.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        Boton_Guardar.setForeground(new java.awt.Color(255, 255, 255));
         Boton_Guardar.setText("Guardar venta");
         Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
         getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 710, 270, 60));
@@ -213,9 +210,10 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 340, 120));
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 810));
+
+        jMenuBar1.setBorder(null);
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,25 +366,11 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmInterfazVentas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+        FrmInterfazVentas frame = new FrmInterfazVentas();
+        SwingUtilities.updateComponentTreeUI(frame);  // ← AGREGA ESTO
+        frame.setVisible(true);
+    });
     }
     
     public void limpiar(){
@@ -398,6 +382,7 @@ public class FrmInterfazVentas extends javax.swing.JFrame {
         TFCantidad.setText("");
         TFPrecioProducto.setText("");
         TFSubtotal.setText("");
+        TFTotal.setText(" ");
     }
     
     public DefaultTableModel mostrarVentas(){

@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingUtilities;
 
 
 /**
@@ -50,6 +51,7 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jPanel1 = new javax.swing.JPanel();
         Logo_Ventas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -69,6 +71,12 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         Costo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Id = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -110,43 +118,66 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Table_Inventario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 740, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 740, 320));
 
-        Boton_Guardar.setText("Guardar");
+        Boton_Guardar.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        Boton_Guardar.setText("Agregarr prducto");
         Boton_Guardar.addActionListener(this::Boton_GuardarActionPerformed);
-        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 130, 50));
+        getContentPane().add(Boton_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 700, 240, 60));
 
         Boton_Eliminar.setText("Eliminar");
         Boton_Eliminar.addActionListener(this::Boton_EliminarActionPerformed);
-        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 120, 50));
+        getContentPane().add(Boton_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 750, 170, 30));
 
         LblFecha.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         getContentPane().add(LblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 100, 20));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel3.setText("Nombre del producto");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel4.setText("Cantidad disponible");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel5.setText("Costo");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel6.setText("Precio de venta");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
-        getContentPane().add(Proudcto_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 160, -1));
-        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 160, -1));
-        getContentPane().add(Precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 160, -1));
-        getContentPane().add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 160, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
+        getContentPane().add(Proudcto_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 160, -1));
+        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 160, -1));
+        getContentPane().add(Precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 160, -1));
+        getContentPane().add(Costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 160, -1));
 
         jLabel7.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel7.setText("Ingrese el id del producto que desea eliminar:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, 20));
-        getContentPane().add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, 160, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, -1, 20));
+        getContentPane().add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 750, 160, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Liberation Sans", 1, 20)); // NOI18N
+        jLabel8.setText("Detalles del producto");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 740, 170));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Liberation Sans", 2, 24)); // NOI18N
+        jLabel9.setText("Lista de productos");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 780, 390));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 400, 110));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 840));
 
         jMenu1.setText("Ventas");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,25 +265,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmInterfazProductos().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+        FrmInterfazProductos frame = new FrmInterfazProductos();
+        SwingUtilities.updateComponentTreeUI(frame);  // ← AGREGA ESTO
+        frame.setVisible(true);
+    });
     }
     
     public void limpiar(){
@@ -305,6 +322,8 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -312,6 +331,11 @@ public class FrmInterfazProductos extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
