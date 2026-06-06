@@ -81,11 +81,14 @@ public class FrmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Parametrso para el login de usuario
+    String usuario = "goloza69@hotmail.com";
+    String password = "123";
+    
     private void Boton_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EntradaActionPerformed
     // Verificasion de usuario por medio de sus datos
         FrmInterfazVentas ventas=new FrmInterfazVentas();
-        if (TFUsuario.getText().equals("goloza69@hotmail.com")&&TFContraseña.getText().equals("123"))
+        if (TFUsuario.getText().equals(usuario)&&TFContraseña.getText().equals(password))
         {
     // Cambio de ventanas
         ventas.setVisible(true);
