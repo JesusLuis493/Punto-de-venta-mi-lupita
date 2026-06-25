@@ -32,8 +32,7 @@ la gestion y administracion interga del negocio
 ## 📋 Resumen: Stack Final
 
 Código:         Java / openjdk 17.0.18                                  
-Base de datos:  ASP.NET Core + Swagger                                                             
-Tests:          suite_testing.sh                               
+Base de datos:  MySql + Workbench                                                                                         
 CI/CD:          GitHub Actions                                          
 
 ## 📂 Estructura del proyecto
