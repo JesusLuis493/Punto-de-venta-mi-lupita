@@ -1,5 +1,5 @@
 # Proyecto final: punto de venta funcinal
-![Java](https://img.shields.io/badge/Java-17.0.18-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![Java](https://img.shields.io/badge/Java-21.0.11-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue?style=flat&logo=mysql&logoColor=white)
 ![Apache NetBeans](https://img.shields.io/badge/NetBeans-Apache%20NetBeans-1B6AC6?style=flat&logo=apache-netbeans&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white)
@@ -23,7 +23,7 @@ la gestion y administracion interga del negocio
 ## 🧰 Tecnologías utilizadas
 
 - **Lenguaje de Programación**: Java
-- **Framework**: openjdk 17.0.18
+- **Framework**: openjdk 21.0.11
 - **Entorno de Desarrollo**: Apache NetBeans en Ubuntu Linux (base Debian)
 - **Control de Versiones**: Git
 - **CI/CD**: GitHub Actions (workflow básico para compilación y pruebas)
@@ -31,7 +31,7 @@ la gestion y administracion interga del negocio
 
 ## 📋 Resumen: Stack Final
 
-Código:         Java / openjdk 17.0.18                                  
+Código:         Java / openjdk 21.0.11                                  
 Base de datos:  ASP.NET Core + Swagger                                                             
 Tests:          suite_testing.sh                               
 CI/CD:          GitHub Actions                                          
