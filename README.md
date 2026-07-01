@@ -13,6 +13,8 @@ la gestion y administracion interga del negocio
 - [Características](#-Características)
 - [Tecnologías utilizadas](#-Tecnologías-utilizadas)
 - [Estructura del proyecto](#-Estructura-del-proyecto)
+- [Autor](#-Autor)
+- [Licencia](#-Licencia)
 
 ## ⚙️ Características
 
@@ -69,3 +71,8 @@ Punto-de-venta-mi-lupita
 ├── build.xml
 └── manifest.mf
 ```
+## 👨‍💻 Autor
+Jesús Luis | 4to Semestre - Ingeniería en Sistemas
+
+## 📝 Licencia
+MIT License - Ver [LICENSE](LICENSE)

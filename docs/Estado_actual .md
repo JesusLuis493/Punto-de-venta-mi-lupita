@@ -148,3 +148,9 @@ Actualmente se cuenta con los archivos de:
 - [Arquitectura.md](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/docs/Arquitectura.md): muestra la composision del proyecto de menra general
 - [Estado_actual.md](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/docs/Estado_actual%20.md): este documento, redacta errores y observaciones
 - [Imagenes](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/tree/master/Imagenes): Contiene material grafico como el diseño de las interfazes y los diagrams de la base de datos)
+
+## 👨‍💻 Autor
+Jesús Luis | 4to Semestre - Ingeniería en Sistemas
+
+## 📝 Licencia
+MIT License - Ver [LICENSE](LICENSE)

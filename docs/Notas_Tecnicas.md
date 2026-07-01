@@ -132,3 +132,11 @@ Esta seccion aborda de la mejor manera posible el funcionamiento del archivo [Fr
 ### Contexto
 Con el fin de abstraer un poco la interfaz con el fin de facilitar el uso del usuario final se opto por unificar en una misma interfaz las tablas de `Ventas` y `Detalles_ventas`, de tal manera que se pudieran llenar los datos relevantes para ambas tablas y en la parte inferior visualizar un reporte de ventas conformado por la informacion de ambas tablas.
 **consultar el documento [Estado_actual.md](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/docs/Estado_actual%20.md) en la fecha `21 de mayo del 2026` dentro del apartado de `login/interfaz` para mayor informacion.
+
+---
+
+## 👨‍💻 Autor
+Jesús Luis | 4to Semestre - Ingeniería en Sistemas
+
+## 📝 Licencia
+MIT License - Ver [LICENSE](LICENSE)
