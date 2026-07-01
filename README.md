@@ -12,6 +12,8 @@ la gestion y administracion interga del negocio
 ## 📋 Tabla de Contenidos
 - [Características](#-Características)
 - [Tecnologías utilizadas](#-Tecnologías-utilizadas)
+- [Requisitos previos](#-Requisitos-previos)
+- [🚀Instalacion](#-🚀Instalacion)
 - [Estructura del proyecto](#-Estructura-del-proyecto)
 - [Autor](#-Autor)
 - [Licencia](#-Licencia)
@@ -38,6 +40,35 @@ la gestion y administracion interga del negocio
 Código:         Java / openjdk 17.0.18                                  
 Base de datos:  MySql + Workbench                                                                                         
 CI/CD:          GitHub Actions                                          
+
+## Requisitos previos
+- **Openjdk 17.0.18+** 
+- **Git** - [Descargar](https://git-scm.com/)
+- **IDE:**  Apache NetBeans o Visual Studio Code
+- **Gestor de BD:** MySQL Terminal o MySQL Workbench
+
+**Verificar instalacion**
+```bash
+java --version
+git --version
+mysql --version
+```
+
+## 🚀Instalacion
+***1. Clonar el repositorio***
+```bash
+git clone https://github.com/JesusLuis493/Punto-de-venta-mi-lupita
+cd Punto de venta mi lupita
+```
+***2. Abrir en el IDE***
+```bash
+# En caso de usar apache netbeans
+netbeans
+
+# En caso de usar Visual Studio Code
+code .
+```
+***3. Disfrutar***
 
 ## 📂 Estructura del proyecto
 ```
