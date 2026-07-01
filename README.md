@@ -25,9 +25,10 @@ la gestion y administracion interga del negocio
 
 - **Lenguaje de Programación**: Java
 - **Framework**: openjdk 17.0.18
+- **Librerias principales**: Swing (interfaces gráficas)
 - **Entorno de Desarrollo**: Apache NetBeans en Ubuntu Linux (base Debian)
 - **Control de Versiones**: Git
-- **CI/CD**: GitHub Actions (workflow básico para compilación y pruebas)
+- **CI**: GitHub Actions (workflow básico para compilación y pruebas aun en desarrollo)
 - **Base de datos**: Mysql
 
 ## 📋 Resumen: Stack Final
