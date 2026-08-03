@@ -12,10 +12,17 @@ Crear un punto de venta adaptado 100% a las nesesidades del usuario final, cumpl
 ## Estructura de carpetas
 ```
 Punto-de-venta-mi-lupita
-├── Base de datos/
-│   ├── PuntoDeVenta.mwr      # Diagrama ER de la base de datos
-│   └── PuntoDeVenta.sql      # Script de la base de datos
+├── .github/
+│   └── ant.yml      # Workflow
+├── Base de datos/       
+│   ├── DiagramaER_BD_0.2.png      
+│   ├── PuntoDeVenta.mwr      
+│   └── PuntoDeVenta.sql      
 ├── Imagenes/                   # Imagenes de las interfases
+├── Scripts/                    
+│   └── tests/                  # Unit tests y Suite de testing
+│       ├── Unit_test.sh
+│       └── Suite_testing.sh
 ├── docs/                      # Documentacion aserca del proyecto
 │   ├── BD Diagrama.png
 │   ├── Arquitectura.md
@@ -46,7 +53,7 @@ Punto-de-venta-mi-lupita
 
 ## Capas de arquitectura
 ### 1️⃣Capa de negocios (core)
-**Ubicasion:** src/
+**Ubicasion:** `src/negocio_mi/lupita/`
 **Responsabilidad:** Llevar acabo las conexiones entre la base de datos y la interfaz grafica de usuario (capa CLI).
 **Componentes**
 
@@ -97,37 +104,59 @@ public class Conexion_BD {
 ---
 
 ### 2️⃣Capa de presentacion
-**Ubicasion:** src/
-**Responsabilidad:** Poder realizar de manera sensilla la manipulacion a la base de datos mediante elementos graficos.
-**Componentes**
+**Ubicasion:** `src/negocio_mi/lupita/`
 
-**Login.java**
-**Proposito:** Brindar un acceso seguro al cliente a la base de datos para su uso. (Revisar la seccion de base de datos en el documento de notas tecnicas).
+**Responsabilidad:** Realizar de manera sencilla la manipulacion a la base de datos mediante elementos graficos.
 
-**FrmInterfazVentas.java**
-![Imagen de la nueva interfaz](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/Interfaz%20de%20usuario%20_ventas.png)
-**Proposito:** Proposrcionar facilidad para visualizar y actualizar la tabla de ventas desde un entorno grafico simple e intuitivo.
+**Componentes:**
 
-**FrmInterfazProductos.java**
-**Proposito:** Proposrcionar facilidad para visualizar y actualizar la tabla de inventario desde un entorno grafico simple e intuitivo.
+### **Login.java**
+- Validacion de usuario y contraseña mediante if/else
+- Uso de Swing para el diseño
+(Revisar la seccion de base de datos en el documento de notas tecnicas).
 
-**FrmInterfazReportes.java**
-**Proposito:** Proposrcionar facilidad para visualizar y actualizar la tabla de Reporte desde un entorno grafico simple e intuitivo.
+### **Conjunto de FrmInterfaz.java**
+- FrmInterfazVentas.java
+- FrmInterfazProductos.java
+- FrmInterfazDeudores.java
 
-**FrmInterfazDeudores.java**
-**Proposito:** Proposrcionar facilidad para visualizar y actualizar la tabla de Deudores desde un entorno grafico simple e intuitivo.
-
+**Caracteristicas:**
+- Frontend enfocado al usuario final
+- Creacion y modificasion de registros
+- Visualizacion de contenido mediente tablas
+- No interactua directamente con la BD
 --- 
 
-### 3️⃣Capa de base de datos
-**Ubicasion:** Incerte aqui la ubicasion.
-**Responsabilidad:** Guarda y permitir manipular los datos referentes al negocio de manera segura.
-**Componentes**
+### 3️⃣Capa de BD
+**Ubicasion:** `Base de datos/` 
 
-**base de datos**
+**Responsabilidad:** Asegurar la replicabilidad de la BD
+
+**Componentes**
+###**BD**
+- Diagreama E-R
 [nueva propuesta de base de datos](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.2.png)         
-**Proposito:** mantener seguros los datos incertados dentro de esta y permitir su manipulacion mediante la interfaz grafica.
+- PuntoDeVenta.mwb
+- PuntoDeVenta.sql
 --- 
+
+### 4️⃣Capa de tests
+ 
+ **Ubicasion:** `Scripts/tests/`
+ 
+ **Responsabilidad:** Verificar la funcionalidad de las consultas a la base de datos
+ 
+ **Componentes:**
+ 
+ ###**Unit_Tests.sh**
+ ###**Suite_Testing.sh**
+ 
+ **Caracteristicas**
+  - Tets unitarios para cada tabla
+ - Comprobaciones de funcionalidad
+ - Simulacion de fallas
+ - Logs
+---
 
 ## 👨‍💻 Autor
 Jesús Luis | 4to Semestre - Ingeniería en Sistemas

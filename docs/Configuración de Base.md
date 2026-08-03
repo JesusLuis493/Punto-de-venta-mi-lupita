@@ -17,6 +17,7 @@ mysql -u root -p < schema.sql
 4. Ejecuta (Ctrl + Shift + Enter)
 
 ## Estructura
+![Diagrama de BD](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/iagramaER_BD_0.2.png)
 - **Productos**: Inventario y precios
 - **Ventas**: Registro de transacciones
 - **Deudores**: Clientes con deuda pendiente

@@ -68,15 +68,32 @@ netbeans
 # En caso de usar Visual Studio Code
 code .
 ```
-***3. Disfrutar***
+***3. Instalacion de BD***
+### Opción 1: Desde terminal
+```bash
+mysql -u root -p < schema.sql
+```
+
+### Opción 2: Desde MySQL Workbench
+1. Abre MySQL Workbench
+2. File → Open SQL Script
+3. Selecciona `schema.sql`
+4. Ejecuta (Ctrl + Shift + Enter)
 
 ## 📂 Estructura del proyecto
 ```
 Punto-de-venta-mi-lupita
-├── Base de datos/
-│   ├── PuntoDeVenta.mwr      # Diagrama ER de la base de datos
-│   └── PuntoDeVenta.sql      # Script de la base de datos
+├── .github/
+│   └── ant.yml      # Workflow
+├── Base de datos/       
+│   ├── DiagramaER_BD_0.2.png      
+│   ├── PuntoDeVenta.mwr      
+│   └── PuntoDeVenta.sql      
 ├── Imagenes/                   # Imagenes de las interfases
+├── Scripts/                    
+│   └── tests/                  # Unit tests y Suite de testing
+│       ├── Unit_test.sh
+│       └── Suite_testing.sh
 ├── docs/                      # Documentacion aserca del proyecto
 │   ├── BD Diagrama.png
 │   ├── Arquitectura.md
