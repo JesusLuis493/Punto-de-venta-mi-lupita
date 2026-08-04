@@ -2,23 +2,73 @@ name: Java workflow CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master ]
+    paths:
+      - 'Scripts/Tests/**'
+      - 'src/**'
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
 
 jobs:
-  build:
-
+  test-database:
     runs-on: ubuntu-latest
 
+    # ── Servicio MySQL en CI ───────────────────────────────────
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mi_lupita
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -u root -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up JDK 17.0.18
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: Build with Ant
-      run:  ant -noinput -buildfile build.xml
+      # 1. Checkout del código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Esperar que MySQL esté listo (el health-check lo garantiza,
+      #    pero un sleep corto evita race conditions raros)
+      - name: Esperar MySQL
+        run: sleep 5
+
+      # 3. Crear el esquema de la BD
+      - name: Crear esquema de prueba
+        run: mysql -h 127.0.0.1 -u root -proot mi_lupita < "Base de datos/PuntoDeVenta.sql"
+
+      # 4. Setup JDK (para el build de Java)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 5. Build con Ant
+      - name: Build with Ant
+        run: ant -noinput -buildfile build.xml
+
+      # 6. Dar permisos y ejecutar la suite de tests
+      - name: Ejecutar Suite de tests de BD
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: mi_lupita
+        run: |
+          chmod +x Scripts/Tests/Suite_testing.sh
+          chmod +x Scripts/Tests/Unit_tests.sh
+          bash Scripts/Tests/Suite_testing.sh | tee test_results.log
+
+      - name: Subir log como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test_results.log
