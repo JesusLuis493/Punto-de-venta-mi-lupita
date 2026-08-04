@@ -2,6 +2,7 @@
 [![Ant.yml](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/workflows/Java%20workflow%20CI/badge.svg)](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/actions)
 ![Java](https://img.shields.io/badge/Java-17.0.18-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue?style=flat&logo=mysql&logoColor=white)
+[![Shell Script](https://img.shields.io/badge/Shell-Bash-green.svg)](https://www.gnu.org/software/bash/)
 ![Apache NetBeans](https://img.shields.io/badge/NetBeans-Apache%20NetBeans-1B6AC6?style=flat&logo=apache-netbeans&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-GitHub-181717?style=flat&logo=github&logoColor=white)
