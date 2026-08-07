@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mi_lupita
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema mi_lupita
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `mi_lupita` DEFAULT CHARACTER SET utf8 ;
+USE `mi_lupita` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Productos`
+-- Table `mi_lupita`.`Productos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Productos` (
+CREATE TABLE IF NOT EXISTS `mi_lupita`.`Productos` (
   `id_Productos` INT NOT NULL AUTO_INCREMENT,
   `Nombre` VARCHAR(45) NULL,
   `Costo` FLOAT NULL,
@@ -31,9 +31,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Ventas`
+-- Table `mi_lupita`.`Ventas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Ventas` (
+CREATE TABLE IF NOT EXISTS `mi_lupita`.`Ventas` (
   `id_Ventas` INT NOT NULL AUTO_INCREMENT,
   `Fecha` DATETIME NULL,
   `Descuento` FLOAT NULL,
@@ -44,9 +44,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Detalles_venta`
+-- Table `mi_lupita`.`Detalles_venta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Detalles_venta` (
+CREATE TABLE IF NOT EXISTS `mi_lupita`.`Detalles_venta` (
   `id_Detalles` INT NOT NULL,
   `id_Ventas` INT NOT NULL,
   `id_Productos` INT NOT NULL,
@@ -57,21 +57,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Detalles_venta` (
   INDEX `fk_Detalles_venta_Ventas1_idx` (`id_Ventas` ASC),
   CONSTRAINT `fk_Detalles_venta_Productos1`
     FOREIGN KEY (`id_Detalles`)
-    REFERENCES `mydb`.`Productos` (`id_Productos`)
+    REFERENCES `mi_lupita`.`Productos` (`id_Productos`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Detalles_venta_Ventas1`
     FOREIGN KEY (`id_Ventas`)
-    REFERENCES `mydb`.`Ventas` (`id_Ventas`)
+    REFERENCES `mi_lupita`.`Ventas` (`id_Ventas`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Deudores`
+-- Table `mi_lupita`.`Deudores`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Deudores` (
+CREATE TABLE IF NOT EXISTS `mi_lupita`.`Deudores` (
   `id_Deudores` INT NOT NULL AUTO_INCREMENT,
   `id_Ventas` INT NOT NULL,
   `Nombre` VARCHAR(45) NULL,
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Deudores` (
   INDEX `fk_Deudores_Ventas1_idx` (`id_Ventas` ASC),
   CONSTRAINT `fk_Deudores_Ventas1`
     FOREIGN KEY (`id_Ventas`)
-    REFERENCES `mydb`.`Ventas` (`id_Ventas`)
+    REFERENCES `mi_lupita`.`Ventas` (`id_Ventas`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

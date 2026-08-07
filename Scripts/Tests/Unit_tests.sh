@@ -15,7 +15,7 @@ DB_HOST="${DB_HOST:-localhost}"
 DB_PORT="${DB_PORT:-3306}"
 DB_USER="${DB_USER:-root}"
 DB_PASS="${DB_PASS:-}"
-DB_NAME="${DB_NAME:-mydb}"
+DB_NAME="${DB_NAME:-mi_lupita}"
 
 # ── Helpers ──────────────────────────────────────────────────
 PASS=0
