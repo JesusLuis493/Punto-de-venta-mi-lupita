@@ -4,6 +4,7 @@
 # Proyecto: Punto de venta Mi Lupita
 # Uso local:  ./Unit_tests.sh
 # Uso en CI:  llamado por Suite_testing.sh
+# Nota: Unit tests creados a base de ia 
 # =============================================================
 
 # ── Configuración de conexión ─────────────────────────────────
@@ -14,7 +15,7 @@ DB_HOST="${DB_HOST:-localhost}"
 DB_PORT="${DB_PORT:-3306}"
 DB_USER="${DB_USER:-root}"
 DB_PASS="${DB_PASS:-}"
-DB_NAME="${DB_NAME:-mi_lupita}"
+DB_NAME="${DB_NAME:-mydb}"
 
 # ── Helpers ──────────────────────────────────────────────────
 PASS=0
@@ -65,8 +66,7 @@ bd=$(mysql -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" ${DB_PASS:+-p"$DB_PASS"} \
 assert "La base de datos '$DB_NAME' existe" "$bd" "$DB_NAME"
 
 # ══════════════════════════════════════════════════════════════
-# TEST POR TABLA — adapta los nombres y columnas a tu esquema real
-# (revisa tus archivos .java en src/ para ver los nombres exactos)
+# TEST POR TABLA — adapta los nombres y columnas al esquema real
 # ══════════════════════════════════════════════════════════════
 
 # ── Tabla: productos ─────────────────────────────────────────
