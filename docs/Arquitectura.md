@@ -138,6 +138,10 @@ public class Conexion_BD {
 [nueva propuesta de base de datos](https://github.com/JesusLuis493/Punto-de-venta-mi-lupita/blob/master/Imagenes/DiagramaER_BD_0.2.png)         
 - PuntoDeVenta.mwb
 - PuntoDeVenta.sql
+
+**Caracteristicas**
+- Puerto 3306
+
 --- 
 
 ### 4️⃣Capa de tests
@@ -147,9 +151,12 @@ public class Conexion_BD {
  **Responsabilidad:** Verificar la funcionalidad de las consultas a la base de datos
  
  **Componentes:**
- 
  ###**Unit_Tests.sh**
+ - Cobertura del 75% para la BD
+ - Validacion de CRUD basico 
+ 
  ###**Suite_Testing.sh**
+ - Contador de tests validados
  
  **Caracteristicas**
   - Tets unitarios para cada tabla
