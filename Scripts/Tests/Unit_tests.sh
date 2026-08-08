@@ -80,16 +80,16 @@ assert "Tabla 'productos' existe" "$existe" "1"
 if [ "$existe" = "1" ]; then
     # Verifica columnas clave
     col_id=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
-                        WHERE TABLE_SCHEMA='$DB_NAME' AND TABLE_NAME='c'
+                        WHERE TABLE_SCHEMA='$DB_NAME' AND TABLE_NAME='Productos'
                         AND COLUMN_NAME='id_Productos';")
     assert "  Columna 'id_Productos' existe" "$col_id" "1"
 
-    col_nombre=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
+    col_Nombre=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
                             WHERE TABLE_SCHEMA='$DB_NAME' AND TABLE_NAME='Productos'
                             AND COLUMN_NAME='Nombre';")
     assert "  Columna 'Nombre' existe" "$col_Nombre" "1"
 
-    col_precio=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
+    col_Costo=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
                             WHERE TABLE_SCHEMA='$DB_NAME' AND TABLE_NAME='Productos'
                             AND COLUMN_NAME='Costo';")
     assert "  Columna 'Costo' existe" "$col_Costo" "1"
@@ -99,7 +99,7 @@ if [ "$existe" = "1" ]; then
     insert_ok=$(mysql_cmd "SELECT COUNT(*) FROM Productos WHERE Nombre='__test_producto__';")
     assert "  INSERT en 'Productos' funciona" "$insert_ok" "1"
 
-    mysql_cmd "DELETE FROM productos WHERE Nombre='__test_producto__';" 2>/dev/null
+    mysql_cmd "DELETE FROM Productos WHERE Nombre='__test_producto__';" 2>/dev/null
     delete_ok=$(mysql_cmd "SELECT COUNT(*) FROM Productos WHERE Nombre='__test_producto__';")
     assert "  DELETE en 'Productos' funciona" "$delete_ok" "0"
 fi
