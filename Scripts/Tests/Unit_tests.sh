@@ -113,7 +113,7 @@ existe_v=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.TABLES
 assert "Tabla 'Ventas' existe" "$existe_v" "1"
 
 if [ "$existe_v" = "1" ]; then
-    col_total=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
+    col_Total=$(mysql_cmd "SELECT COUNT(*) FROM information_schema.COLUMNS
                            WHERE TABLE_SCHEMA='$DB_NAME' AND TABLE_NAME='Ventas'
                            AND COLUMN_NAME='Total';")
     assert "  Columna 'Total' existe" "$col_Total" "1"
