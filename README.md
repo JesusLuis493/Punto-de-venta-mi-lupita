@@ -26,6 +26,7 @@ la gestion y administracion interga del negocio
 - **Registro de deudores :** Implementacion de un registro unico de deudores basado en numero de venta y montos a dever.
 - **interfas user-friendly :** Se pretende mantener la interfas adaptada al cliente final para facilitar su uso.
 - **Funcionalidad :** base de datos optimizada lo mas posible para no desperdiciar recursos, priorizando el enfoque KISS.
+- **Monitoreo :** Tests unitarios unificadps en unas suite de testing para la base de datos con covertura del 75% y logs convertidos en artefactos.
 ## 🧰 Tecnologías utilizadas
 
 - **Lenguaje de Programación**: Java
@@ -35,12 +36,14 @@ la gestion y administracion interga del negocio
 - **Control de Versiones**: Git
 - **CI**: GitHub Actions (workflow básico para compilación y pruebas aun en desarrollo)
 - **Base de datos**: Mysql
+- **Testing**: Suite_testing.sh (shell)
 
 ## 📋 Resumen: Stack Final
 
 Código:         Java / openjdk 17.0.18                                  
 Base de datos:  MySql + Workbench                                                                                         
 CI/CD:          GitHub Actions                                          
+Tests:          Shell
 
 ## Requisitos previos
 - **Openjdk 17.0.18+** 
