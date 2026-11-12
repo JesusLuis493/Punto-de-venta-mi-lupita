@@ -25,3 +25,10 @@ replay_pid*
 /dist/
 build/
 nbproject/private/
+
+# IntelliJ
+.idea/
+*.iml
+
+# NetBeans (config local, no hace falta versionar)
+nbproject/private/
