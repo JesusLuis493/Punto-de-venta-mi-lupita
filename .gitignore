@@ -32,3 +32,7 @@ nbproject/private/
 
 # NetBeans (config local, no hace falta versionar)
 nbproject/private/
+
+# Ant/NetBeans (ya no se usan con Maven)
+nbproject/
+build.xml
