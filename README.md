@@ -30,9 +30,8 @@ la gestion y administracion interga del negocio
 ## 🧰 Tecnologías utilizadas
 
 - **Lenguaje de Programación**: Java
-- **Framework**: openjdk 17.0.18
-- **Librerias principales**: Swing (interfaces gráficas)
-- **Entorno de Desarrollo**: Apache NetBeans en Ubuntu Linux (base Debian)
+- **Framework**: Spring boot
+- **Entorno de Desarrollo**: IntelliJ IDEA en Ubuntu Linux (base Debian)
 - **Control de Versiones**: Git
 - **CI**: GitHub Actions (workflow básico para compilación y pruebas aun en desarrollo)
 - **Base de datos**: Mysql
